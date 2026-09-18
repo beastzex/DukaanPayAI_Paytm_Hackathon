@@ -1,0 +1,32 @@
+# ==========================================
+# Production Multi-Stage Dockerfile for Python FastAPI Services
+# ==========================================
+
+FROM python:3.11-slim AS builder
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+ARG SERVICE_DIR
+COPY ${SERVICE_DIR}/requirements.txt ./requirements.txt
+RUN pip install --no-cache-dir --user -r requirements.txt
+
+# Stage 2: Final Runtime
+FROM python:3.11-slim AS runner
+
+WORKDIR /app
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PATH=/root/.local/bin:$PATH
+
+COPY --from=builder /root/.local /root/.local
+
+ARG SERVICE_DIR
+COPY ${SERVICE_DIR} ./
+
+EXPOSE 8000
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4"]

@@ -1,0 +1,1 @@
+{"version":3,"file":"twilio-webhook-validator.d.ts","sourceRoot":"","sources":["../../../src/integrations/twilio/twilio-webhook-validator.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,QAAQ,EAAE,YAAY,EAAE,MAAM,SAAS,CAAC;AAK1D,qBAAa,sBAAsB;IACjC;;;OAGG;WACW,QAAQ,CAAC,GAAG,EAAE,OAAO,EAAE,GAAG,EAAE,QAAQ,EAAE,IAAI,EAAE,YAAY,GAAG,IAAI;CAwC9E"}

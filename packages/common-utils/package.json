@@ -1,0 +1,23 @@
+{
+  "name": "@dukaanpay/common-utils",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@dukaanpay/shared-types": "*",
+    "winston": "^3.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "kafkajs": "^2.2.4",
+    "pg": "^8.11.3",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.11.24",
+    "@types/pg": "^8.11.0",
+    "typescript": "^5.3.3"
+  }
+}
