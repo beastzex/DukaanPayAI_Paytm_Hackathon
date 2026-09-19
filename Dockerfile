@@ -31,14 +31,12 @@ RUN apk add --no-cache dumb-init
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# Copy built backend
-COPY --from=builder /app/backend/package*.json ./backend/
-RUN cd backend && npm ci --only=production && npm cache clean --force
-COPY --from=builder /app/backend/dist ./backend/dist
+# Copy built backend with compiled native dependencies (e.g. argon2)
+COPY --from=builder /app/backend ./backend
 
-# Copy built frontend
+# Copy built frontend with runtime dependencies and Next.js build
 COPY --from=builder /app/package*.json ./
-RUN npm ci --only=production && npm cache clean --force
+COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/ml ./ml
