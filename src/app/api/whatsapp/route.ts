@@ -53,6 +53,26 @@ export async function POST(req: NextRequest) {
 
     console.log('[WhatsApp Webhook Received]:', { from, bodyText, numMedia, mediaUrl, isExplicitMediaScan });
 
+function escapeXml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+function toTwiMLResponse(body: string): NextResponse {
+  const safeText = body.length > 1500 ? body.slice(0, 1490) + '...' : body;
+  const twiml = `<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Message>
+    <Body>${escapeXml(safeText)}</Body>
+  </Message>
+</Response>`;
+  return new NextResponse(twiml, { headers: { 'Content-Type': 'text/xml' } });
+}
+
     if (isExplicitMediaScan) {
       const mediaAnalysis = await processWhatsAppMedia({
         mediaUrl,
@@ -62,21 +82,21 @@ export async function POST(req: NextRequest) {
 
       const hindiMsg = mediaAnalysis.hindiSpokenResponse;
       const englishMsg = `🇬🇧 *English Details & Action Points:*\n${mediaAnalysis.englishSummary}`;
+      const combined = `${hindiMsg}\n\n${englishMsg}`;
 
-      // Dispatch directly via Twilio REST API to ensure delivery without TwiML limits
-      await sendWhatsAppNotification(from, hindiMsg);
-      await sendWhatsAppNotification(from, englishMsg);
+      // 1. Try REST API in background (best effort)
+      sendWhatsAppNotification(from, hindiMsg).catch(() => {});
+      sendWhatsAppNotification(from, englishMsg).catch(() => {});
 
+      // 2. Return immediate TwiML message so it delivers even if REST quota is exhausted
       if (isTwilioForm) {
-        return new NextResponse(`<?xml version="1.0" encoding="UTF-8"?><Response></Response>`, {
-          headers: { 'Content-Type': 'text/xml' },
-        });
+        return toTwiMLResponse(hindiMsg);
       }
 
       return NextResponse.json({
         status: 'success',
         type: 'MULTIMODAL_SCAN_RESPONSE',
-        reply: `${hindiMsg}\n\n${englishMsg}`,
+        reply: combined,
         data: mediaAnalysis,
       });
     }
@@ -88,12 +108,10 @@ export async function POST(req: NextRequest) {
 
 जवाब में *हाँ* (Yes) या *नहीं* (No) लिखें, या कॉल बटन दबाएं।`;
 
-      await sendWhatsAppNotification(from, confirmationMsg);
+      sendWhatsAppNotification(from, confirmationMsg).catch(() => {});
 
       if (isTwilioForm) {
-        return new NextResponse(`<?xml version="1.0" encoding="UTF-8"?><Response></Response>`, {
-          headers: { 'Content-Type': 'text/xml' },
-        });
+        return toTwiMLResponse(confirmationMsg);
       }
 
       return NextResponse.json({
@@ -150,12 +168,10 @@ DukaanPay AI आपको +1 (724) 538-7484 से कॉल कर रहा �
 2. "agar Maggi ke 50 packet mangwaun toh kitne din me bikege" (What-If)
 3. "tax kaise bachaye aur CA advisory kya hai" (Virtual CA)`;
 
-      await sendWhatsAppNotification(from, callInitiateMsg);
+      sendWhatsAppNotification(from, callInitiateMsg).catch(() => {});
 
       if (isTwilioForm) {
-        return new NextResponse(`<?xml version="1.0" encoding="UTF-8"?><Response></Response>`, {
-          headers: { 'Content-Type': 'text/xml' },
-        });
+        return toTwiMLResponse(callInitiateMsg);
       }
 
       return NextResponse.json({
@@ -171,20 +187,20 @@ DukaanPay AI आपको +1 (724) 538-7484 से कॉल कर रहा �
     const voiceRes = await processVoiceQuery(bodyText);
     const hindiMsg = `🇮🇳 *हिंदी में जानकारी (Hindi):*\n${voiceRes.hindiSpokenResponse}`;
     const englishMsg = `🇬🇧 *English Details & Action Points:*\n${voiceRes.englishSummary}`;
+    const combinedReply = `${hindiMsg}\n\n━━━━━━━━━━━━━━━━━━━━\n${englishMsg}`;
 
-    await sendWhatsAppNotification(from, hindiMsg);
-    await sendWhatsAppNotification(from, englishMsg);
+    sendWhatsAppNotification(from, hindiMsg).catch(() => {});
+    sendWhatsAppNotification(from, englishMsg).catch(() => {});
 
     if (isTwilioForm) {
-      return new NextResponse(`<?xml version="1.0" encoding="UTF-8"?><Response></Response>`, {
-        headers: { 'Content-Type': 'text/xml' },
-      });
+      const twimlBody = combinedReply.length <= 1500 ? combinedReply : hindiMsg;
+      return toTwiMLResponse(twimlBody);
     }
 
     return NextResponse.json({
       status: 'success',
       type: 'NLP_RESPONSE',
-      reply: `${hindiMsg}\n\n━━━━━━━━━━━━━━━━━━━━\n${englishMsg}`,
+      reply: combinedReply,
       data: voiceRes,
     });
   } catch (err: any) {
