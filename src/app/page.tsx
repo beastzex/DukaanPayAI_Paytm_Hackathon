@@ -15,38 +15,45 @@ import { HealthScoreSection } from '@/components/sections/HealthScoreSection';
 import { ProofStripSection } from '@/components/sections/ProofStripSection';
 import { CtaFooterSection } from '@/components/sections/CtaFooterSection';
 
+import Link from 'next/link';
+
 export default function LandingPage() {
   return (
     <SmoothScroll>
-      <div className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-amber-500 selection:text-white">
+      <div className="min-h-screen bg-white text-[#0F1E36] font-sans antialiased selection:bg-[#00BAF2] selection:text-white">
         {/* Minimal Top Header on Pure White */}
-        <header className="w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md sticky top-0 z-50">
+        <header className="w-full border-b border-[#DCE8F6] bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-2xs">
           <div className="max-w-6xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="font-headline text-lg font-bold tracking-tight text-slate-900">
-                DukaanPay<span className="text-teal-700">AI</span>
+              <span className="font-headline text-lg font-extrabold tracking-tight text-[#002E6E]">
+                DukaanPay<span className="text-[#00BAF2]">AI</span>
               </span>
-              <span className="hidden md:inline text-[10px] font-mono text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">
-                Track 1: Merchant Growth AI
+              <span className="hidden md:inline text-[10px] font-mono text-[#002E6E] bg-[#EBF5FF] border border-[#DCE8F6] px-2.5 py-0.5 rounded-full font-semibold">
+                Paytm Build for India • Track 1
               </span>
             </div>
 
-            <nav className="hidden sm:flex items-center gap-6 text-xs text-slate-600 font-medium">
-              <a href="#story" className="hover:text-slate-950 transition-colors">Merchant Story</a>
-              <a href="#simulator" className="hover:text-slate-950 transition-colors">Interactive Lab</a>
-              <a href="#ecosystem" className="hover:text-slate-950 transition-colors">Paytm Synergy</a>
-              <a href="#roi-calculator" className="hover:text-slate-950 transition-colors">ROI Calculator</a>
-              <a href="#agent-graph" className="hover:text-slate-950 transition-colors">Architecture</a>
-              <a href="#ai-models" className="hover:text-slate-950 transition-colors font-semibold text-teal-700">Real ML Models</a>
-              <a href="#health-score" className="hover:text-slate-950 transition-colors">Health Score</a>
+            <nav className="hidden lg:flex items-center gap-6 text-xs text-slate-600 font-medium">
+              <a href="#story" className="hover:text-[#002E6E] transition-colors">Merchant Story</a>
+              <a href="#simulator" className="hover:text-[#002E6E] transition-colors">Interactive Lab</a>
+              <a href="#ecosystem" className="hover:text-[#002E6E] transition-colors">Paytm Synergy</a>
+              <a href="#roi-calculator" className="hover:text-[#002E6E] transition-colors">ROI Calculator</a>
+              <a href="#agent-graph" className="hover:text-[#002E6E] transition-colors">Architecture</a>
+              <a href="#ai-models" className="hover:text-[#002E6E] transition-colors font-semibold text-[#002E6E]">Real ML Models</a>
+              <Link href="/dashboard" className="text-[#00BAF2] font-bold hover:underline flex items-center gap-1">
+                <span>Live Portal</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00BAF2] animate-ping" />
+              </Link>
             </nav>
 
-            <a
-              href="#simulator"
-              className="text-xs font-semibold px-4 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-all shadow-xs"
-            >
-              Live Demo
-            </a>
+            <div className="flex items-center gap-2.5">
+              <Link
+                href="/dashboard"
+                className="text-xs font-bold px-4 py-1.5 rounded-lg bg-[#00BAF2] hover:bg-[#0099D8] text-white transition-all shadow-xs flex items-center gap-1.5"
+              >
+                <span>🚀 Merchant Dashboard</span>
+              </Link>
+            </div>
           </div>
         </header>
 
