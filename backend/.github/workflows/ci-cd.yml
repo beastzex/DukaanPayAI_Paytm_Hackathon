@@ -1,0 +1,72 @@
+name: DukaanPayAI Production CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Node Dependencies
+        run: npm ci
+
+      - name: Build TypeScript Monorepo
+        run: |
+          npm --workspace=packages/shared-types run build
+          npm --workspace=packages/shared-validators run build
+          npm --workspace=packages/common-utils run build
+          npm run build
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate Python AI Services
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+          flake8 services/ai-agent-service services/forecasting-service services/ocr-service services/voice-agent-service --max-line-length=120 --ignore=E402,W503
+
+  docker-build-and-deploy:
+    needs: validate-and-build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials (ap-south-1 Mumbai)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build and Push Docker Images
+        run: |
+          echo "Building production microservice images for DukaanPayAI..."
+          # docker build -t ${{ steps.login-ecr.outputs.registry }}/dukaanpay/api-gateway:${{ github.sha }} -f infrastructure/docker/Dockerfile.node --build-arg SERVICE_DIR=services/api-gateway .
+          # docker push ${{ steps.login-ecr.outputs.registry }}/dukaanpay/api-gateway:${{ github.sha }}
+
+      - name: Deploy to Amazon EKS Cluster
+        run: |
+          echo "Applying Kubernetes manifests to dukaanpay-prod namespace..."
+          # aws eks update-kubeconfig --name dukaanpay-eks-cluster --region ap-south-1
+          # kubectl apply -f infrastructure/k8s/

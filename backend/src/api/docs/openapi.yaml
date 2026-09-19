@@ -1,0 +1,596 @@
+openapi: 3.0.3
+info:
+  title: DukaanPayAI Enterprise Core Backend Platform API
+  description: >
+    Bank-grade, event-driven Clean Architecture backend platform for Indian Kirana merchants.
+    Exposes clean interfaces for Frontend UI, External AI Models, and Telecom Integrations.
+  version: 1.0.0
+  contact:
+    name: Backend Architecture Team
+    email: backend-team@dukaanpay.ai
+
+servers:
+  - url: http://localhost:4000
+    description: Local Gateway / Development
+  - url: https://api.dukaanpay.ai
+    description: Production Cluster
+
+tags:
+  - name: "Authentication & Identity"
+    description: "Argon2id password hashing, JWT access/refresh token rotation, and Redis logout blacklist"
+  - name: "Merchants & Kirana Stores"
+    description: "Merchant onboarding, profile retrieval with Redis Cache-Aside, and settings updates"
+  - name: "Telecom & Communications"
+    description: "Twilio WhatsApp interactive messaging and automated outbound AI voice calls"
+  - name: "Marketing Campaigns"
+    description: "Targeted broadcast campaigns with distributed Redlock concurrency guard"
+  - name: "AI Integration (External Team Hook)"
+    description: "Clean REST interfaces for external AI models to fetch merchant feature vectors and ingest actions"
+  - name: "Webhooks & Callbacks"
+    description: "Twilio webhook callbacks with HMAC validation, plus outbound webhook subscriptions & DLQ replay"
+  - name: "Analytics & Compliance Audit"
+    description: "System throughput metrics and immutable regulatory audit trail"
+  - name: "System Health & Observability"
+    description: "Kubernetes liveness, readiness, BullMQ queue depths, and Prometheus metrics"
+
+paths:
+  # -------------------------------------------------------------
+  # 1. System Health & Observability
+  # -------------------------------------------------------------
+  /health/live:
+    get:
+      tags: ["System Health & Observability"]
+      summary: Liveness Probe
+      description: Returns 200 OK if Express process is alive.
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              example:
+                status: "UP"
+                check: "liveness"
+
+  /health/ready:
+    get:
+      tags: ["System Health & Observability"]
+      summary: Readiness Probe
+      description: Validates connectivity to PostgreSQL, Redis, and Apache Kafka.
+      responses:
+        '200':
+          description: Dependencies are online
+          content:
+            application/json:
+              example:
+                status: "UP"
+                services:
+                  database: { status: "UP", latencyMs: 1.2 }
+                  redis: { status: "UP", latencyMs: 0.8 }
+                  kafka: { status: "UP", latencyMs: 2.1 }
+
+  /health/queues:
+    get:
+      tags: ["System Health & Observability"]
+      summary: Queue Health & Depth Probe
+      description: Returns active, waiting, and failed job counts across all 6 BullMQ queues.
+      responses:
+        '200':
+          description: Queue metrics snapshot
+
+  /metrics:
+    get:
+      tags: ["System Health & Observability"]
+      summary: Prometheus Metrics Endpoint
+      description: Scrape target for Prometheus monitoring HTTP latency, cache hits, queue sizes.
+      responses:
+        '200':
+          description: Prometheus plaintext format
+
+  # -------------------------------------------------------------
+  # 2. Authentication & Identity
+  # -------------------------------------------------------------
+  /api/v1/auth/register:
+    post:
+      tags: ["Authentication & Identity"]
+      summary: Register User with Argon2
+      description: Creates user credentials hashed with bank-grade Argon2id and returns JWT tokens.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phoneNumber, password]
+              properties:
+                phoneNumber:
+                  type: string
+                  example: "+919876543210"
+                password:
+                  type: string
+                  example: "Password@12345"
+                email:
+                  type: string
+                  example: "merchant@kirana.test"
+                roles:
+                  type: array
+                  items:
+                    type: string
+                    enum: [MERCHANT, DISTRIBUTOR, ADMIN, SUPPORT]
+                  default: ["MERCHANT"]
+      responses:
+        '201':
+          description: User registered successfully
+
+  /api/v1/auth/login:
+    post:
+      tags: ["Authentication & Identity"]
+      summary: User Login & JWT Issuance
+      description: Verifies credentials with Argon2 and issues 15m Access Token & 7d Refresh Token.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phoneNumber, password]
+              properties:
+                phoneNumber:
+                  type: string
+                  example: "+919876543210"
+                password:
+                  type: string
+                  example: "Password@12345"
+      responses:
+        '200':
+          description: Authentication successful
+
+  /api/v1/auth/refresh-token:
+    post:
+      tags: ["Authentication & Identity"]
+      summary: Rotate JWT Refresh Token
+      description: Rotates refresh token, invalidating previous refresh token in Redis.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [refreshToken]
+              properties:
+                refreshToken:
+                  type: string
+      responses:
+        '200':
+          description: New token pair issued
+
+  /api/v1/auth/logout:
+    post:
+      tags: ["Authentication & Identity"]
+      summary: User Logout (Redis Token Blacklist)
+      security:
+        - BearerAuth: []
+      description: Revokes active access token instantly by blacklisting it in Redis.
+      responses:
+        '200':
+          description: Logged out and token revoked
+
+  # -------------------------------------------------------------
+  # 3. Merchants & Kirana Stores
+  # -------------------------------------------------------------
+  /api/v1/merchants/register:
+    post:
+      tags: ["Merchants & Kirana Stores"]
+      summary: Onboard New Kirana Merchant
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [businessName, ownerName, phoneNumber, city, state, pincode]
+              properties:
+                businessName:
+                  type: string
+                  example: "Gupta Kirana Store"
+                ownerName:
+                  type: string
+                  example: "Ramesh Gupta"
+                phoneNumber:
+                  type: string
+                  example: "+919811223344"
+                city:
+                  type: string
+                  example: "Kanpur"
+                state:
+                  type: string
+                  example: "Uttar Pradesh"
+                pincode:
+                  type: string
+                  example: "208006"
+                category:
+                  type: string
+                  default: "Kirana & FMCG"
+                preferredLanguage:
+                  type: string
+                  default: "hi"
+      responses:
+        '201':
+          description: Merchant created and domain event published to Kafka
+
+  /api/v1/merchants/{id}/profile:
+    get:
+      tags: ["Merchants & Kirana Stores"]
+      summary: Retrieve Merchant Profile (Cache-Aside)
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Profile returned from Redis cache or PostgreSQL
+
+  /api/v1/merchants/{id}/settings:
+    patch:
+      tags: ["Merchants & Kirana Stores"]
+      summary: Update Merchant Settings (Optimistic Locking)
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [settings, version]
+              properties:
+                settings:
+                  type: object
+                  example: { whatsappAlerts: true, dailyAudioBriefingTime: "08:30" }
+                version:
+                  type: integer
+                  description: Expected optimistic locking version
+                  example: 1
+      responses:
+        '200':
+          description: Settings updated and version incremented
+
+  # -------------------------------------------------------------
+  # 4. Telecom & Communications
+  # -------------------------------------------------------------
+  /api/v1/communications/whatsapp/send:
+    post:
+      tags: ["Telecom & Communications"]
+      summary: Enqueue & Dispatch WhatsApp Message
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [merchantId, recipient, content]
+              properties:
+                merchantId:
+                  type: string
+                recipient:
+                  type: string
+                  example: "+919876543210"
+                content:
+                  type: string
+                  example: "Aapka daily Vyapaar ledger summary taiyyar hai."
+      responses:
+        '200':
+          description: Message queued via BullMQ and dispatched via Twilio
+
+  /api/v1/communications/voice/call:
+    post:
+      tags: ["Telecom & Communications"]
+      summary: Initiate Outbound Twilio Voice Call
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [merchantId, recipient]
+              properties:
+                merchantId:
+                  type: string
+                recipient:
+                  type: string
+                  example: "+919876543210"
+                language:
+                  type: string
+                  default: "hi-IN"
+      responses:
+        '200':
+          description: Voice call queued via BullMQ and initiated via Twilio
+
+  # -------------------------------------------------------------
+  # 5. Marketing Campaigns
+  # -------------------------------------------------------------
+  /api/v1/campaigns:
+    post:
+      tags: ["Marketing Campaigns"]
+      summary: Draft Targeted Campaign
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [merchantId, title, targetSegment, templateSlug, audienceCount]
+              properties:
+                merchantId:
+                  type: string
+                title:
+                  type: string
+                  example: "Navratri Special 10% Off on Ghee"
+                targetSegment:
+                  type: string
+                  example: "LAPSED_CUSTOMERS"
+                channel:
+                  type: string
+                  enum: [WHATSAPP, VOICE, SMS, EMAIL]
+                  default: WHATSAPP
+                templateSlug:
+                  type: string
+                  example: "festive_discount_v1"
+                audienceCount:
+                  type: integer
+                  example: 50
+      responses:
+        '201':
+          description: Campaign drafted successfully
+
+  /api/v1/campaigns/{id}/execute:
+    post:
+      tags: ["Marketing Campaigns"]
+      summary: Execute Campaign with Redlock Distributed Mutex
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Campaign execution triggered under distributed lock
+
+  /api/v1/campaigns/merchant/{merchantId}:
+    get:
+      tags: ["Marketing Campaigns"]
+      summary: List Campaigns for Merchant
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: merchantId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of campaigns returned
+
+  # -------------------------------------------------------------
+  # 6. AI Integration (Clean External AI Team Hook)
+  # -------------------------------------------------------------
+  /api/v1/ai-integration/merchant-context/{id}:
+    get:
+      tags: ["AI Integration (External Team Hook)"]
+      summary: Fetch Merchant Feature Vector for AI Inference
+      security:
+        - BearerAuth: []
+      description: >
+        External AI team calls this to retrieve aggregated 7-day revenue velocity,
+        average daily transactions, low stock count, customer churn indicators,
+        and external signals (temperature, festival name, match day).
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Context vector returned for model evaluation
+
+  /api/v1/ai-integration/recommendations:
+    post:
+      tags: ["AI Integration (External Team Hook)"]
+      summary: Ingest Growth Recommendation from External AI Models
+      security:
+        - BearerAuth: []
+      description: >
+        External AI team posts proposed growth actions (stock restock, win-back discounts).
+        Backend validates payload, publishes to Kafka ('ai.recommendations.generated'),
+        and enqueues interactive WhatsApp approval prompt.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [merchantId, actionType, priority, title, rationaleIndic, projectedRevenueINR, payload]
+              properties:
+                merchantId:
+                  type: string
+                actionType:
+                  type: string
+                  enum: [STOCK_RESTOCK, WINBACK_CAMPAIGN, FESTIVAL_BUFFER, UDHAAR_RECOVERY]
+                priority:
+                  type: string
+                  enum: [LOW, MEDIUM, HIGH, CRITICAL]
+                title:
+                  type: string
+                  example: "Restock Tata Salt 1kg before Diwali spike"
+                rationaleIndic:
+                  type: string
+                  example: "दिवाली से पहले नमक की बिक्री 3x बढ़ने की संभावना है।"
+                projectedRevenueINR:
+                  type: number
+                  example: 4200
+                payload:
+                  type: object
+                  example: { sku: "SALT-TATA-1KG", suggestedQty: 50 }
+                requiresMerchantApproval:
+                  type: boolean
+                  default: true
+      responses:
+        '201':
+          description: Action ingested and queued for 1-tap merchant approval
+
+  # -------------------------------------------------------------
+  # 7. Webhooks & Callbacks
+  # -------------------------------------------------------------
+  /api/v1/webhooks/twilio/message-status:
+    post:
+      tags: ["Webhooks & Callbacks"]
+      summary: Inbound Twilio WhatsApp Delivery Status Callback
+      description: Receives delivery receipt from Twilio. Protected by HMAC-SHA1 X-Twilio-Signature verification.
+      responses:
+        '200':
+          description: Status acknowledged
+
+  /api/v1/webhooks/twilio/voice-status:
+    post:
+      tags: ["Webhooks & Callbacks"]
+      summary: Inbound Twilio Voice Call Status Callback
+      description: Receives call completion and duration stats. Protected by Twilio HMAC validation.
+      responses:
+        '200':
+          description: Status recorded
+
+  /api/v1/webhooks/twilio/ivr-callback:
+    post:
+      tags: ["Webhooks & Callbacks"]
+      summary: Twilio Interactive Voice Response (IVR) Callback
+      description: Dynamically generates TwiML instructions when merchant presses keys during phone call.
+      responses:
+        '200':
+          description: Returns TwiML XML payload
+
+  /api/v1/webhooks/subscriptions:
+    post:
+      tags: ["Webhooks & Callbacks"]
+      summary: Register Outbound Webhook Listener
+      security:
+        - BearerAuth: []
+      description: Registers third-party webhook endpoint with HMAC-SHA256 secret.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [merchantId, targetUrl, subscribedEvents]
+              properties:
+                merchantId:
+                  type: string
+                targetUrl:
+                  type: string
+                  example: "https://partner-erp.com/webhook"
+                subscribedEvents:
+                  type: array
+                  items:
+                    type: string
+                  example: ["transaction.completed", "stock.depleted"]
+      responses:
+        '201':
+          description: Webhook subscription registered with generated HMAC secret
+
+  /api/v1/webhooks/logs:
+    get:
+      tags: ["Webhooks & Callbacks"]
+      summary: View Outbound Webhook Delivery Logs
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: List of delivery logs
+
+  /api/v1/webhooks/dlq/replay:
+    post:
+      tags: ["Webhooks & Callbacks"]
+      summary: Replay Dead-Letter Queue (DLQ) Webhooks
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: DLQ messages replayed
+
+  # -------------------------------------------------------------
+  # 8. Analytics & Compliance Audit
+  # -------------------------------------------------------------
+  /api/v1/analytics/metrics:
+    get:
+      tags: ["Analytics & Compliance Audit"]
+      summary: Aggregated System & Business Metrics
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Metrics snapshot
+
+  /api/v1/analytics/audit-logs:
+    get:
+      tags: ["Analytics & Compliance Audit"]
+      summary: Regulatory Audit Trail (Admin/Support Only)
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Immutable security and transaction audit logs
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Enter your JWT Access Token obtained from /api/v1/auth/login
+
+security:
+  - BearerAuth: []

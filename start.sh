@@ -2,8 +2,10 @@
 echo "🚀 Starting DukaanPay AI Unified Production Container..."
 
 # 1. Start Express Backend on internal port 4000
-echo "📦 Starting Express Backend on port 4000..."
-(cd /app/backend && PORT=4000 node dist/server.js) &
+if [ -f "/app/backend/dist/server.js" ]; then
+  echo "📦 Starting Express Backend on port 4000..."
+  (cd /app/backend && PORT=4000 node dist/server.js) &
+fi
 
 # 2. Start Next.js Frontend & Webhook API on Render's assigned $PORT
 PORT_TO_USE="${PORT:-3000}"

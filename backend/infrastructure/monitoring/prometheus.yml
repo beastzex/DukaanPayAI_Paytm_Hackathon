@@ -1,0 +1,32 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'api-gateway'
+    static_configs:
+      - targets: ['api-gateway:4000']
+
+  - job_name: 'merchant-service'
+    static_configs:
+      - targets: ['merchant-service:4001']
+
+  - job_name: 'transaction-service'
+    static_configs:
+      - targets: ['transaction-service:4002']
+
+  - job_name: 'inventory-service'
+    static_configs:
+      - targets: ['inventory-service:4003']
+
+  - job_name: 'health-score-service'
+    static_configs:
+      - targets: ['health-score-service:4004']
+
+  - job_name: 'ai-agent-service'
+    static_configs:
+      - targets: ['ai-agent-service:8001']
+
+  - job_name: 'forecasting-service'
+    static_configs:
+      - targets: ['forecasting-service:8002']

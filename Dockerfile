@@ -8,12 +8,8 @@ WORKDIR /app
 RUN apk add --no-cache python3 make g++ gcc libc-dev
 
 # 1. Build Backend
-COPY backend/package*.json ./backend/
-COPY backend/tsconfig*.json ./backend/
-RUN cd backend && npm ci
-
-COPY backend/src/ ./backend/src/
-RUN cd backend && npm run build
+COPY backend/ ./backend/
+RUN cd backend && npm ci && npm run build
 
 # 2. Build Frontend (Next.js 16)
 COPY package*.json ./

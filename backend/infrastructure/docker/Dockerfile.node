@@ -1,0 +1,49 @@
+# ==========================================
+# Production Multi-Stage Dockerfile for Node.js Services
+# ==========================================
+
+# Stage 1: Build & Compile
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Install build dependencies
+COPY package.json tsconfig.base.json ./
+COPY packages/shared-types ./packages/shared-types
+COPY packages/shared-validators ./packages/shared-validators
+COPY packages/common-utils ./packages/common-utils
+
+ARG SERVICE_DIR
+COPY ${SERVICE_DIR} ./${SERVICE_DIR}
+
+RUN npm install --workspace=packages/shared-types --workspace=packages/shared-validators --workspace=packages/common-utils --workspace=${SERVICE_DIR}
+RUN npm --workspace=packages/shared-types run build
+RUN npm --workspace=packages/shared-validators run build
+RUN npm --workspace=packages/common-utils run build
+RUN npm --workspace=${SERVICE_DIR} run build
+
+# Stage 2: Minimal Distroless / Alpine Runtime
+FROM node:20-alpine AS runner
+
+WORKDIR /app
+ENV NODE_ENV=production
+
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/packages/shared-types/dist ./packages/shared-types/dist
+COPY --from=builder /app/packages/shared-types/package.json ./packages/shared-types/
+COPY --from=builder /app/packages/shared-validators/dist ./packages/shared-validators/dist
+COPY --from=builder /app/packages/shared-validators/package.json ./packages/shared-validators/
+COPY --from=builder /app/packages/common-utils/dist ./packages/common-utils/dist
+COPY --from=builder /app/packages/common-utils/package.json ./packages/common-utils/
+
+ARG SERVICE_DIR
+COPY --from=builder /app/${SERVICE_DIR}/dist ./${SERVICE_DIR}/dist
+COPY --from=builder /app/${SERVICE_DIR}/package.json ./${SERVICE_DIR}/
+
+RUN npm install --omit=dev --workspace=${SERVICE_DIR}
+
+USER node
+WORKDIR /app/${SERVICE_DIR}
+
+EXPOSE 4000
+CMD ["node", "dist/index.js"]
