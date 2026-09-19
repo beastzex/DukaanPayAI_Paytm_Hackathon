@@ -41,6 +41,44 @@ export interface SendWhatsAppResult {
   timestamp: string;
 }
 
+function splitIntoTwilioChunks(text: string, maxLen = 1400): string[] {
+  if (text.length <= maxLen) return [text];
+
+  const chunks: string[] = [];
+  const paragraphs = text.split('\n\n');
+  let currentChunk = '';
+
+  for (const para of paragraphs) {
+    if ((currentChunk + '\n\n' + para).trim().length <= maxLen) {
+      currentChunk = currentChunk ? currentChunk + '\n\n' + para : para;
+    } else {
+      if (currentChunk.trim()) {
+        chunks.push(currentChunk.trim());
+        currentChunk = '';
+      }
+      if (para.length <= maxLen) {
+        currentChunk = para;
+      } else {
+        const lines = para.split('\n');
+        for (const line of lines) {
+          if ((currentChunk + '\n' + line).trim().length <= maxLen) {
+            currentChunk = currentChunk ? currentChunk + '\n' + line : line;
+          } else {
+            if (currentChunk.trim()) chunks.push(currentChunk.trim());
+            currentChunk = line;
+          }
+        }
+      }
+    }
+  }
+
+  if (currentChunk.trim()) {
+    chunks.push(currentChunk.trim());
+  }
+
+  return chunks.length > 0 ? chunks : [text.slice(0, maxLen)];
+}
+
 export async function sendWhatsAppNotification(
   to: string,
   body: string
@@ -55,21 +93,28 @@ export async function sendWhatsAppNotification(
       const twilioClient = (twilioModule.default || twilioModule)(config.accountSid!, config.authToken!);
 
       const formattedTo = to.startsWith('whatsapp:') ? to : `whatsapp:${to}`;
-      const message = await twilioClient.messages.create({
-        from: config.whatsappFrom!,
+      const chunks = splitIntoTwilioChunks(body, 1400);
+      let lastSid = '';
+
+      for (const chunk of chunks) {
+        const message = await twilioClient.messages.create({
+          from: config.whatsappFrom!,
+          to: formattedTo,
+          body: chunk,
+        });
+        lastSid = message.sid;
+        console.log(`[Twilio Live] Dispatched chunk (${chunk.length} chars) to ${formattedTo}: SID=${message.sid}`);
+      }
+
+      return {
+        success: true,
+        messageSid: lastSid,
+        mode: 'LIVE_TWILIO',
+        status: 'queued',
         to: formattedTo,
         body,
-      });
-
-        return {
-          success: true,
-          messageSid: message.sid,
-          mode: 'LIVE_TWILIO',
-          status: 'queued',
-          to: formattedTo,
-          body,
-          timestamp,
-        };
+        timestamp,
+      };
     } catch (err: any) {
       console.warn('[Twilio] Live dispatch failed, falling back to sandbox mode:', err.message);
     }

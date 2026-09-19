@@ -169,9 +169,11 @@ DukaanPay AI आपको +1 (724) 538-7484 से कॉल कर रहा �
 
     // 3. Regular question handling via Voice & NLP Engine
     const voiceRes = await processVoiceQuery(bodyText);
-    const replyText = `🇮🇳 *हिंदी में जानकारी (Hindi):*\n${voiceRes.hindiSpokenResponse}\n\n━━━━━━━━━━━━━━━━━━━━\n🇬🇧 *English Details & Action Points:*\n${voiceRes.englishSummary}`;
+    const hindiMsg = `🇮🇳 *हिंदी में जानकारी (Hindi):*\n${voiceRes.hindiSpokenResponse}`;
+    const englishMsg = `🇬🇧 *English Details & Action Points:*\n${voiceRes.englishSummary}`;
 
-    await sendWhatsAppNotification(from, replyText);
+    await sendWhatsAppNotification(from, hindiMsg);
+    await sendWhatsAppNotification(from, englishMsg);
 
     if (isTwilioForm) {
       return new NextResponse(`<?xml version="1.0" encoding="UTF-8"?><Response></Response>`, {
@@ -182,7 +184,7 @@ DukaanPay AI आपको +1 (724) 538-7484 से कॉल कर रहा �
     return NextResponse.json({
       status: 'success',
       type: 'NLP_RESPONSE',
-      reply: replyText,
+      reply: `${hindiMsg}\n\n━━━━━━━━━━━━━━━━━━━━\n${englishMsg}`,
       data: voiceRes,
     });
   } catch (err: any) {
