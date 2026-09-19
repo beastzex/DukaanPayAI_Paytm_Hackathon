@@ -1,0 +1,12 @@
+node_modules
+.next
+dist
+.git
+.gitignore
+.env*.local
+*.log
+scratch*
+.tempmediaStorage
+.user_uploaded
+WhatsApp_AI_Merchant_COO_Enhancements.docx
+extracted_enhancements.txt

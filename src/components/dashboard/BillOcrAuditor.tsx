@@ -69,7 +69,7 @@ export function BillOcrAuditor() {
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             <h3 className="text-lg font-bold text-[#002E6E]">Distributor Bill OCR & Margin Defense</h3>
             <span className="text-[11px] font-mono font-medium px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-              Llama-3.2-Vision + PaddleOCR
+              Qwen-2-VL + PaddleOCR
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1">

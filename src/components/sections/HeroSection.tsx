@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { PhoneFrame } from '@/components/ui/PhoneFrame';
 import { ParallaxBadge } from '@/components/ui/ParallaxBadge';
@@ -45,15 +46,22 @@ export const HeroSection: React.FC = () => {
           </p>
 
           {/* Action Row */}
-          <div className="pt-2 flex flex-wrap items-center gap-4">
+          <div className="pt-2 flex flex-wrap items-center gap-3.5">
+            <Link
+              href="/dashboard"
+              className="px-5 py-2.5 rounded-xl bg-[#002E6E] hover:bg-[#001f4d] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+            >
+              <span>📊 Open Merchant Dashboard</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            </Link>
             <Button variant="saffron" onClick={handleScrollToDemo}>
               See it in action
             </Button>
             <a
               href="#simulator"
-              className="text-xs font-semibold text-slate-700 hover:text-slate-950 transition-colors underline underline-offset-4"
+              className="text-xs font-semibold text-slate-700 hover:text-[#002E6E] transition-colors underline underline-offset-4 flex items-center gap-1"
             >
-              Try Interactive Simulator →
+              Try Simulator →
             </a>
           </div>
 

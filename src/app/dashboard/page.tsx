@@ -6,9 +6,11 @@ import { MLClient } from '@/lib/ml-client';
 import { WhatsAppLiveFeed } from '@/components/whatsapp/WhatsAppLiveFeed';
 import { ShelfVisionScanner } from '@/components/dashboard/ShelfVisionScanner';
 import { BillOcrAuditor } from '@/components/dashboard/BillOcrAuditor';
+import { WhatIfSimulator } from '@/components/dashboard/WhatIfSimulator';
+import { VirtualCaAdvisor } from '@/components/dashboard/VirtualCaAdvisor';
 
 export default function MerchantDashboardPage() {
-  const [activeTab, setActiveTab] = useState<'overview' | 'demand' | 'inventory' | 'vision' | 'customers' | 'whatsapp'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'demand' | 'inventory' | 'vision' | 'customers' | 'whatsapp' | 'simulator' | 'virtualca'>('overview');
   const [soundboxPlaying, setSoundboxPlaying] = useState(false);
 
   const store = MLClient.getStoreSummary();
@@ -78,7 +80,9 @@ export default function MerchantDashboardPage() {
               { id: 'overview', label: '📊 Overview & Live Sales', badge: 'Live' },
               { id: 'demand', label: '📈 Prophet Demand Forecaster', badge: 'Diurnal AI' },
               { id: 'inventory', label: '📦 XGBoost Stockout Defense', badge: '15 SKUs' },
-              { id: 'vision', label: '👁️ Shelf & Invoice Vision Audits', badge: 'Llama-3.2' },
+              { id: 'simulator', label: '🧮 What-If Inventory Simulator', badge: 'Interactive' },
+              { id: 'virtualca', label: '💼 Virtual CA & Wealth Advisor', badge: 'Save ₹70k' },
+              { id: 'vision', label: '👁️ Shelf & Invoice Vision Audits', badge: 'Qwen-VL' },
               { id: 'customers', label: '👥 RFM Khata & Churn Ledger', badge: '1,200 Shoppers' },
               { id: 'whatsapp', label: '💬 WhatsApp AI Teammate', badge: 'Interactive' },
             ].map((tab) => (
@@ -524,6 +528,20 @@ export default function MerchantDashboardPage() {
                 </table>
               </div>
             </div>
+          </div>
+        )}
+
+        {/* TAB 7: WHAT-IF INVENTORY SIMULATOR */}
+        {activeTab === 'simulator' && (
+          <div className="space-y-4">
+            <WhatIfSimulator />
+          </div>
+        )}
+
+        {/* TAB 8: VIRTUAL CA & WEALTH ADVISOR */}
+        {activeTab === 'virtualca' && (
+          <div className="space-y-4">
+            <VirtualCaAdvisor />
           </div>
         )}
 

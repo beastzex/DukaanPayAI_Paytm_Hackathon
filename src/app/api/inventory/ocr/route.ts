@@ -27,7 +27,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       status: 'success',
-      engine: 'PaddleOCR + Llama-3.2-Vision Rate-Audit Pipeline',
+      engine: 'PaddleOCR + Qwen-2-VL Rate-Audit Pipeline',
       parsedInMs: 142,
       confidenceScore: 98.4,
       supplier: invoice.distributorName,

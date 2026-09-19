@@ -45,7 +45,7 @@ const SCENARIOS: Scenario[] = [
     id: 'ocr',
     tabLabel: 'Supplier Overcharge Caught',
     problemBadge: 'Khata OCR Audit Agent',
-    agentUsed: 'Llama-3.2-Vision + Rule Engine',
+    agentUsed: 'Qwen-2-VL-72B + Rule Engine',
     waMessage: '🧾 Price Discrepancy Found: Modern Dairy invoice billed ₹62/L instead of agreed ₹59/L.',
     waDetail: 'Net overcharge: ₹850 across 12 crates. Send WhatsApp debit note to distributor?',
     buttonText: 'Send Debit Note via WhatsApp',

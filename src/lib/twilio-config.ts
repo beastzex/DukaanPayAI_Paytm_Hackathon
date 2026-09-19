@@ -50,19 +50,16 @@ export async function sendWhatsAppNotification(
 
   if (config.isLiveConfigured) {
     try {
-      // Dynamic import with fallback
-      // @ts-expect-error - Twilio may be resolved from backend workspace
-      const twilioModule: any = await import('twilio').catch(() => null);
-      if (twilioModule) {
-        const twilio = twilioModule.default || twilioModule;
-        const client = twilio(config.accountSid!, config.authToken!);
+      // Direct Twilio official client
+      const twilioModule = await import('twilio');
+      const twilioClient = (twilioModule.default || twilioModule)(config.accountSid!, config.authToken!);
 
-        const formattedTo = to.startsWith('whatsapp:') ? to : `whatsapp:${to}`;
-        const message = await client.messages.create({
-          from: config.whatsappFrom!,
-          to: formattedTo,
-          body,
-        });
+      const formattedTo = to.startsWith('whatsapp:') ? to : `whatsapp:${to}`;
+      const message = await twilioClient.messages.create({
+        from: config.whatsappFrom!,
+        to: formattedTo,
+        body,
+      });
 
         return {
           success: true,
@@ -73,7 +70,6 @@ export async function sendWhatsAppNotification(
           body,
           timestamp,
         };
-      }
     } catch (err: any) {
       console.warn('[Twilio] Live dispatch failed, falling back to sandbox mode:', err.message);
     }

@@ -227,7 +227,7 @@ export const AiModelTelemetrySection: React.FC = () => {
                 <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                   <div>
                     <h3 className="text-xl font-headline font-normal text-slate-900">
-                      Groq LPU (Llama-3.3-70B-Versatile)
+                      Groq LPU (GPT-OSS-120B / Qwen-2.5-32B)
                     </h3>
                     <div className="text-xs font-mono text-teal-700 font-semibold mt-0.5">
                       Cognitive Synthesis & Multilingual Prompts

@@ -101,6 +101,23 @@ export default function LandingPage() {
           {/* 12. CTA / FOOTER (Single Saffron Border-Beam Glow Button + Minimal Footer) */}
           <CtaFooterSection />
         </main>
+
+        {/* Persistent Floating Quick-Switch to Dashboard Button */}
+        <div className="fixed bottom-6 right-6 z-50">
+          <Link
+            href="/dashboard"
+            className="group flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-[#002E6E] hover:bg-[#001f4d] text-white font-bold text-xs shadow-2xl border border-sky-400/30 transition-all hover:scale-105 active:scale-95"
+          >
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00BAF2] opacity-75" />
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00BAF2]" />
+            </span>
+            <span>Switch to Merchant Dashboard</span>
+            <span className="px-1.5 py-0.5 rounded bg-white/20 text-[10px] font-mono group-hover:bg-[#00BAF2]">
+              Live ↗
+            </span>
+          </Link>
+        </div>
       </div>
     </SmoothScroll>
   );

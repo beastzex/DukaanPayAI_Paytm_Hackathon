@@ -134,7 +134,7 @@ export const EcosystemBentoSection: React.FC = () => {
               Automated Bill OCR & Khata Defense
             </h3>
             <p className="text-xs text-slate-600 font-sans leading-relaxed">
-              Merchants snap a photo of distributor paper slips. Llama-3.2 Vision automatically audits line items against price lists, catching silent wholesale margin leaks.
+              Merchants snap a photo of distributor paper slips. Qwen-2-VL Vision automatically audits line items against price lists, catching silent wholesale margin leaks.
             </p>
             <div className="pt-2 text-xs font-mono text-amber-700 font-medium">
               → ₹1,450/month average recovered per neighborhood merchant
