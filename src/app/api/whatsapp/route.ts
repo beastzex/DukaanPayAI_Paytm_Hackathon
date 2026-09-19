@@ -38,12 +38,20 @@ export async function POST(req: NextRequest) {
       mediaUrl.length > 0 ||
       lowerText.includes('photo') ||
       lowerText.includes('tasveer') ||
+      lowerText.includes('image') ||
+      lowerText.includes('pic') ||
+      lowerText.includes('shelf') ||
+      lowerText.includes('items here') ||
+      lowerText.includes('rack') ||
       lowerText.includes('shelf scan') ||
       lowerText.includes('bill scan') ||
       lowerText.includes('khata scan') ||
-      lowerText.includes('invoice check') ||
-      lowerText.includes('bill check') ||
-      lowerText.includes('bahi khata check');
+      lowerText.includes('invoice') ||
+      lowerText.includes('bill') ||
+      lowerText.includes('chalan') ||
+      lowerText.includes('bahi khata');
+
+    console.log('[WhatsApp Webhook Received]:', { from, bodyText, numMedia, mediaUrl, isExplicitMediaScan });
 
     if (isExplicitMediaScan) {
       const mediaAnalysis = await processWhatsAppMedia({
@@ -52,24 +60,23 @@ export async function POST(req: NextRequest) {
         captionText: bodyText,
       });
 
-      const replyText = `${mediaAnalysis.hindiSpokenResponse}\n\n━━━━━━━━━━━━━━━━━━━━\n${mediaAnalysis.englishSummary}`;
+      const hindiMsg = mediaAnalysis.hindiSpokenResponse;
+      const englishMsg = `🇬🇧 *English Details & Action Points:*\n${mediaAnalysis.englishSummary}`;
+
+      // Dispatch directly via Twilio REST API to ensure delivery without TwiML limits
+      await sendWhatsAppNotification(from, hindiMsg);
+      await sendWhatsAppNotification(from, englishMsg);
 
       if (isTwilioForm) {
-        const twiml = `<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-  <Message>
-    <Body>${replyText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</Body>
-  </Message>
-</Response>`;
-        return new NextResponse(twiml, { headers: { 'Content-Type': 'text/xml' } });
+        return new NextResponse(`<?xml version="1.0" encoding="UTF-8"?><Response></Response>`, {
+          headers: { 'Content-Type': 'text/xml' },
+        });
       }
-
-      await sendWhatsAppNotification(from, replyText);
 
       return NextResponse.json({
         status: 'success',
         type: 'MULTIMODAL_SCAN_RESPONSE',
-        reply: replyText,
+        reply: `${hindiMsg}\n\n${englishMsg}`,
         data: mediaAnalysis,
       });
     }
@@ -81,17 +88,13 @@ export async function POST(req: NextRequest) {
 
 जवाब में *हाँ* (Yes) या *नहीं* (No) लिखें, या कॉल बटन दबाएं।`;
 
-      if (isTwilioForm) {
-        const twiml = `<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-  <Message>
-    <Body>${confirmationMsg.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</Body>
-  </Message>
-</Response>`;
-        return new NextResponse(twiml, { headers: { 'Content-Type': 'text/xml' } });
-      }
-
       await sendWhatsAppNotification(from, confirmationMsg);
+
+      if (isTwilioForm) {
+        return new NextResponse(`<?xml version="1.0" encoding="UTF-8"?><Response></Response>`, {
+          headers: { 'Content-Type': 'text/xml' },
+        });
+      }
 
       return NextResponse.json({
         status: 'success',
@@ -147,17 +150,13 @@ DukaanPay AI आपको +1 (724) 538-7484 से कॉल कर रहा �
 2. "agar Maggi ke 50 packet mangwaun toh kitne din me bikege" (What-If)
 3. "tax kaise bachaye aur CA advisory kya hai" (Virtual CA)`;
 
-      if (isTwilioForm) {
-        const twiml = `<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-  <Message>
-    <Body>${callInitiateMsg.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</Body>
-  </Message>
-</Response>`;
-        return new NextResponse(twiml, { headers: { 'Content-Type': 'text/xml' } });
-      }
-
       await sendWhatsAppNotification(from, callInitiateMsg);
+
+      if (isTwilioForm) {
+        return new NextResponse(`<?xml version="1.0" encoding="UTF-8"?><Response></Response>`, {
+          headers: { 'Content-Type': 'text/xml' },
+        });
+      }
 
       return NextResponse.json({
         status: 'success',
@@ -172,17 +171,13 @@ DukaanPay AI आपको +1 (724) 538-7484 से कॉल कर रहा �
     const voiceRes = await processVoiceQuery(bodyText);
     const replyText = `🇮🇳 *हिंदी में जानकारी (Hindi):*\n${voiceRes.hindiSpokenResponse}\n\n━━━━━━━━━━━━━━━━━━━━\n🇬🇧 *English Details & Action Points:*\n${voiceRes.englishSummary}`;
 
-    if (isTwilioForm) {
-      const twiml = `<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-  <Message>
-    <Body>${replyText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</Body>
-  </Message>
-</Response>`;
-      return new NextResponse(twiml, { headers: { 'Content-Type': 'text/xml' } });
-    }
-
     await sendWhatsAppNotification(from, replyText);
+
+    if (isTwilioForm) {
+      return new NextResponse(`<?xml version="1.0" encoding="UTF-8"?><Response></Response>`, {
+        headers: { 'Content-Type': 'text/xml' },
+      });
+    }
 
     return NextResponse.json({
       status: 'success',
