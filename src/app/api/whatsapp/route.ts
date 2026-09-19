@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isCallIntent, isCallConfirmation, processVoiceQuery, getScheduledDailyBriefings } from '@/ai/voice-coo-engine';
+import { processWhatsAppMedia } from '@/ai/whatsapp-vision-ocr';
 import { sendWhatsAppNotification } from '@/lib/twilio-config';
 
 export async function POST(req: NextRequest) {
@@ -7,19 +8,71 @@ export async function POST(req: NextRequest) {
     const contentType = req.headers.get('content-type') || '';
     let from = 'whatsapp:+919821012345';
     let bodyText = '';
+    let numMedia = 0;
+    let mediaUrl = '';
+    let mediaType = '';
 
     if (contentType.includes('application/json')) {
       const json = await req.json();
       from = json.From || json.from || from;
       bodyText = json.Body || json.body || json.text || '';
+      numMedia = parseInt(json.NumMedia || json.numMedia || (json.mediaUrl ? '1' : '0'), 10);
+      mediaUrl = json.MediaUrl0 || json.mediaUrl || '';
+      mediaType = json.MediaContentType0 || json.mediaContentType || '';
     } else {
       // Twilio form-encoded payload
       const formData = await req.formData();
       from = (formData.get('From') as string) || from;
       bodyText = (formData.get('Body') as string) || '';
+      numMedia = parseInt((formData.get('NumMedia') as string) || '0', 10);
+      mediaUrl = (formData.get('MediaUrl0') as string) || '';
+      mediaType = (formData.get('MediaContentType0') as string) || '';
     }
 
     const isTwilioForm = contentType.includes('application/x-www-form-urlencoded') || req.headers.get('x-twilio-signature');
+
+    // 0. Multimodal Vision & OCR Handler (Shelf Photo, Bahi Khata, Purchase Bills)
+    const lowerText = bodyText.toLowerCase();
+    const isExplicitMediaScan =
+      numMedia > 0 ||
+      mediaUrl.length > 0 ||
+      lowerText.includes('photo') ||
+      lowerText.includes('tasveer') ||
+      lowerText.includes('shelf scan') ||
+      lowerText.includes('bill scan') ||
+      lowerText.includes('khata scan') ||
+      lowerText.includes('invoice check') ||
+      lowerText.includes('bill check') ||
+      lowerText.includes('bahi khata check');
+
+    if (isExplicitMediaScan) {
+      const mediaAnalysis = await processWhatsAppMedia({
+        mediaUrl,
+        mediaType,
+        captionText: bodyText,
+      });
+
+      const replyText = `${mediaAnalysis.hindiSpokenResponse}\n\n━━━━━━━━━━━━━━━━━━━━\n${mediaAnalysis.englishSummary}`;
+
+      if (isTwilioForm) {
+        const twiml = `<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Message>
+    <Body>${replyText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</Body>
+  </Message>
+</Response>`;
+        return new NextResponse(twiml, { headers: { 'Content-Type': 'text/xml' } });
+      }
+
+      await sendWhatsAppNotification(from, replyText);
+
+      return NextResponse.json({
+        status: 'success',
+        type: 'MULTIMODAL_SCAN_RESPONSE',
+        reply: replyText,
+        data: mediaAnalysis,
+      });
+    }
 
     // 1. Check if user is asking for a call
     if (isCallIntent(bodyText)) {
