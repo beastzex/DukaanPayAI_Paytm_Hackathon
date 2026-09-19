@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-void: #FFFFFF;
+    --panel-surface: #F8FAFC;
+    --text-primary: #0F172A;
+    --accent-saffron: #D97706;
+    --accent-teal: #0D9488;
+    --border-hairline: #E2E8F0;
+  }
+
+  /* Make scrollbars invisible everywhere while preserving smooth scrolling functionality */
+  * {
+    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important; /* Firefox */
+  }
+
+  *::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, WebKit */
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  html, body {
+    background-color: #FFFFFF;
+    color: #0F172A;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.015em;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Headline serif font */
+  .font-headline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+  }
+
+  /* Monospace tabular numbers */
+  .font-telemetry {
+    font-family: 'JetBrains Mono', monospace;
+    font-feature-settings: "tnum" 1, "zero" 1;
+  }
+}
+
+/* Hairline utility */
+.border-hairline {
+  border-color: #E2E8F0;
+}
+
+/* Spotlight Border-Beam glow on light background specifically reserved for primary close CTA */
+@keyframes borderBeam {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+.saffron-beam-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 1.5px;
+  background: #E2E8F0;
+}
+
+.saffron-beam-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 0 320deg, #D97706 360deg);
+  animation: rotateBeam 4s linear infinite;
+}
+
+@keyframes rotateBeam {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .saffron-beam-container::before {
+    animation: none;
+    background: #D97706;
+    opacity: 0.3;
+  }
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

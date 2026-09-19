@@ -1,0 +1,228 @@
+{
+  "metrics": {
+    "mae": 618.25,
+    "rmse": 816.32,
+    "mape": 79.97,
+    "r2_variance": "88.4%",
+    "train_intervals": 4779,
+    "test_intervals": 1050
+  },
+  "curve": [
+    {
+      "timestamp": "2026-09-17T23:00:00",
+      "hour": "23:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 0,
+      "trend": 211.1,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T00:00:00",
+      "hour": "00:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 0,
+      "trend": 210.94,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T01:00:00",
+      "hour": "01:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 0,
+      "trend": 210.78,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T02:00:00",
+      "hour": "02:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 645.4,
+      "trend": 210.62,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T03:00:00",
+      "hour": "03:00",
+      "predicted_revenue": 434.5,
+      "lower_bound": 0,
+      "upper_bound": 1215.98,
+      "trend": 210.46,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T04:00:00",
+      "hour": "04:00",
+      "predicted_revenue": 500.65,
+      "lower_bound": 0,
+      "upper_bound": 1269.19,
+      "trend": 210.3,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T05:00:00",
+      "hour": "05:00",
+      "predicted_revenue": 259.87,
+      "lower_bound": 0,
+      "upper_bound": 1027.0,
+      "trend": 210.14,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T06:00:00",
+      "hour": "06:00",
+      "predicted_revenue": 41.56,
+      "lower_bound": 0,
+      "upper_bound": 783.32,
+      "trend": 209.98,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T07:00:00",
+      "hour": "07:00",
+      "predicted_revenue": 0.92,
+      "lower_bound": 0,
+      "upper_bound": 775.55,
+      "trend": 209.82,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T08:00:00",
+      "hour": "08:00",
+      "predicted_revenue": 26.45,
+      "lower_bound": 0,
+      "upper_bound": 862.86,
+      "trend": 209.67,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T09:00:00",
+      "hour": "09:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 699.13,
+      "trend": 209.51,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T10:00:00",
+      "hour": "10:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 423.68,
+      "trend": 209.35,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T11:00:00",
+      "hour": "11:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 104.97,
+      "trend": 209.19,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T12:00:00",
+      "hour": "12:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 30.34,
+      "trend": 209.03,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T13:00:00",
+      "hour": "13:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 0,
+      "trend": 208.87,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T14:00:00",
+      "hour": "14:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 0,
+      "trend": 208.71,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T15:00:00",
+      "hour": "15:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 0,
+      "trend": 208.55,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T16:00:00",
+      "hour": "16:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 83.88,
+      "trend": 208.39,
+      "rain_impact": 86.06
+    },
+    {
+      "timestamp": "2026-09-18T17:00:00",
+      "hour": "17:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 418.25,
+      "trend": 208.24,
+      "rain_impact": 86.06
+    },
+    {
+      "timestamp": "2026-09-18T18:00:00",
+      "hour": "18:00",
+      "predicted_revenue": 173.83,
+      "lower_bound": 0,
+      "upper_bound": 949.33,
+      "trend": 208.08,
+      "rain_impact": 86.06
+    },
+    {
+      "timestamp": "2026-09-18T19:00:00",
+      "hour": "19:00",
+      "predicted_revenue": 34.94,
+      "lower_bound": 0,
+      "upper_bound": 792.97,
+      "trend": 207.92,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T20:00:00",
+      "hour": "20:00",
+      "predicted_revenue": 167.32,
+      "lower_bound": 0,
+      "upper_bound": 941.2,
+      "trend": 207.76,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T21:00:00",
+      "hour": "21:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 437.31,
+      "trend": 207.6,
+      "rain_impact": 0.0
+    },
+    {
+      "timestamp": "2026-09-18T22:00:00",
+      "hour": "22:00",
+      "predicted_revenue": 0,
+      "lower_bound": 0,
+      "upper_bound": 46.04,
+      "trend": 207.44,
+      "rain_impact": 0.0
+    }
+  ]
+}

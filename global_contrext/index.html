@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paytm Merchant Growth Agent - Pitch Deck | Paytm Build for India AI Hackathon</title>
+  <meta name="description" content="Paytm Merchant Growth Agent: The AI Teammate That Runs Alongside Every Merchant. Hackathon Finalist Pitch Deck.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="deck-viewport">
+    <div id="deck-container">
+
+      <!-- ===================================================================
+           SLIDE 1: COVER
+           =================================================================== -->
+      <section class="slide theme-dark active" id="slide-1" data-slide="1" data-title="Cover">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Paytm Build for India AI Hackathon</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="split-layout">
+            <div>
+              <div class="slide-category">Merchant Growth AI Track</div>
+              <h1 class="slide-headline large" style="margin-bottom: 20px;">
+                Paytm Merchant <br><span class="text-gradient">Growth Agent</span>
+              </h1>
+              <p style="font-size: 24px; font-weight: 600; color: #94a3b8; margin-bottom: 28px; letter-spacing: -0.01em;">
+                The AI Teammate That Runs Alongside Every Merchant.
+              </p>
+              <div style="display: inline-block; background: rgba(0, 119, 251, 0.15); border: 1px solid var(--blue-border); padding: 14px 22px; border-radius: 12px; font-size: 16px; font-weight: 600; color: #60a5fa; margin-bottom: 20px;">
+                🚀 <strong>Value Proposition:</strong> Transforming Paytm from a payment platform into a merchant growth platform.
+              </div>
+              <div style="font-size: 16px; color: #cbd5e1; font-weight: 500;">
+                Presented by <strong style="color: #38bdf8; font-size: 18px;">Team Sentinels (Akshat Arya and Mayank Yadav)</strong>
+              </div>
+            </div>
+
+            <!-- Visual: Kirana Store Owner + WhatsApp + Paytm QR + AI Copilot Hub -->
+            <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+              <svg width="480" height="380" viewBox="0 0 480 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Outer pulse circles -->
+                <circle cx="240" cy="190" r="160" stroke="#0077fb" stroke-opacity="0.15" stroke-dasharray="6 6" />
+                <circle cx="240" cy="190" r="110" stroke="#0077fb" stroke-opacity="0.25" />
+                
+                <!-- Central Kirana Merchant Node -->
+                <rect x="180" y="130" width="120" height="120" rx="24" fill="#0077fb" />
+                <!-- Icon: Merchant / Store -->
+                <path d="M220 180H260M220 180L215 210H265L260 180M220 180V165C220 162.2 222.2 160 225 160H255C257.8 160 260 162.2 260 165V180" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="240" y="235" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12" font-family="var(--font-primary)">KIRANA OWNER</text>
+
+                <!-- Left Orbit: WhatsApp Layer -->
+                <g transform="translate(40, 140)">
+                  <rect width="100" height="100" rx="20" fill="#182030" stroke="#25D366" stroke-width="2"/>
+                  <circle cx="50" cy="40" r="18" fill="#25D366" />
+                  <path d="M44 40C44 44.4 47.6 48 52 48C53.4 48 54.7 47.6 55.8 47L58 48L57 45.8C57.6 44.7 58 43.4 58 42C58 37.6 54.4 34 50 34C45.6 34 42 37.6 42 42" fill="#ffffff"/>
+                  <text x="50" y="74" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">WHATSAPP</text>
+                  <text x="50" y="88" text-anchor="middle" fill="#94a3b8" font-size="9">Natural Habit</text>
+                </g>
+
+                <!-- Right Orbit: Paytm QR / Soundbox -->
+                <g transform="translate(340, 140)">
+                  <rect width="100" height="100" rx="20" fill="#182030" stroke="#0077fb" stroke-width="2"/>
+                  <circle cx="50" cy="40" r="18" fill="#0077fb" />
+                  <!-- Soundbox / QR icon -->
+                  <path d="M43 36H47V40H43V36ZM53 36H57V40H53V36ZM43 46H47V50H43V46ZM53 46H57V50H53V46Z" fill="#ffffff"/>
+                  <text x="50" y="74" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">PAYTM QR</text>
+                  <text x="50" y="88" text-anchor="middle" fill="#94a3b8" font-size="9">Payment Signal</text>
+                </g>
+
+                <!-- Top Orbit: Autonomous AI Agent -->
+                <g transform="translate(190, 15)">
+                  <rect width="100" height="85" rx="16" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+                  <text x="50" y="32" text-anchor="middle" fill="#38bdf8" font-size="18">⚡</text>
+                  <text x="50" y="52" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">AI AGENT</text>
+                  <text x="50" y="66" text-anchor="middle" fill="#38bdf8" font-size="9">Proactive Co-pilot</text>
+                </g>
+
+                <!-- Connecting Rays -->
+                <line x1="140" y1="190" x2="180" y2="190" stroke="#25D366" stroke-width="2" stroke-dasharray="4 4"/>
+                <line x1="300" y1="190" x2="340" y2="190" stroke="#0077fb" stroke-width="2" stroke-dasharray="4 4"/>
+                <line x1="240" y1="100" x2="240" y2="130" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 4"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 01 / 20</span>
+          <span class="footer-tagline">Paytm Build for India AI Hackathon • Track: Merchant Growth AI</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 2: THE PROBLEM WE SOLVE
+           =================================================================== -->
+      <section class="slide" id="slide-2" data-slide="2" data-title="The Problem We Solve">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">The Problem</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">The Core Merchant Dilemma</div>
+          <h2 class="slide-headline">
+            Merchants Generate Data Every Day.<br>
+            <span class="text-blue">But They Don't Get Decisions.</span>
+          </h2>
+
+          <div class="split-layout">
+            <!-- 6 Urgent Questions -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div class="clean-card" style="padding: 16px 20px; border-left: 4px solid var(--blue-primary);">
+                <div style="font-size: 13px; font-weight: 700; color: var(--blue-primary); margin-bottom: 4px;">SALES MYSTERY</div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--text-dark);">Why did sales drop yesterday?</div>
+              </div>
+              <div class="clean-card" style="padding: 16px 20px; border-left: 4px solid var(--accent-amber);">
+                <div style="font-size: 13px; font-weight: 700; color: var(--accent-amber); margin-bottom: 4px;">INVENTORY REPLENISHMENT</div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--text-dark);">What inventory should I buy tomorrow?</div>
+              </div>
+              <div class="clean-card" style="padding: 16px 20px; border-left: 4px solid var(--accent-red);">
+                <div style="font-size: 13px; font-weight: 700; color: var(--accent-red); margin-bottom: 4px;">STOCKOUT RISK</div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--text-dark);">Which products are running out?</div>
+              </div>
+              <div class="clean-card" style="padding: 16px 20px; border-left: 4px solid #8b5cf6;">
+                <div style="font-size: 13px; font-weight: 700; color: #8b5cf6; margin-bottom: 4px;">CUSTOMER CHURN</div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--text-dark);">Which customers stopped returning?</div>
+              </div>
+              <div class="clean-card" style="padding: 16px 20px; border-left: 4px solid var(--accent-green);">
+                <div style="font-size: 13px; font-weight: 700; color: var(--accent-green); margin-bottom: 4px;">DEMAND TIMING</div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--text-dark);">When will peak footfall surge?</div>
+              </div>
+              <div class="clean-card" style="padding: 16px 20px; border-left: 4px solid var(--blue-deep);">
+                <div style="font-size: 13px; font-weight: 700; color: var(--blue-deep); margin-bottom: 4px;">BUSINESS SCALE</div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--text-dark);">How do I grow my business profits?</div>
+              </div>
+            </div>
+
+            <!-- Visual Infographic: Kirana Chaos -->
+            <div style="background: var(--light-card-subtle); border-radius: var(--radius-md); padding: 24px; border: 1px solid var(--light-border); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+              <svg width="240" height="150" viewBox="0 0 240 150" fill="none">
+                <rect x="20" y="30" width="60" height="80" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+                <text x="50" y="75" text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">KHATA BOOK</text>
+                
+                <rect x="90" y="15" width="60" height="95" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+                <text x="120" y="65" text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">PAPER BILLS</text>
+
+                <rect x="160" y="40" width="60" height="70" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+                <text x="190" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">QR AUDIOS</text>
+
+                <path d="M40 125L200 125" stroke="#ef4444" stroke-width="3" stroke-dasharray="6 6"/>
+                <circle cx="120" cy="125" r="16" fill="#ef4444"/>
+                <text x="120" y="130" text-anchor="middle" fill="#ffffff" font-weight="800" font-size="14">✕</text>
+              </svg>
+              <div style="font-size: 14px; font-weight: 600; color: var(--text-muted); margin-top: 12px;">
+                Scattered books, bills, and notifications create cognitive overload.
+              </div>
+            </div>
+          </div>
+
+          <div class="insight-banner">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <span><strong>Key Insight:</strong> India's merchants don't need more complex dashboards. They need an autonomous business teammate.</span>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 02 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 3: WHAT'S BROKEN TODAY
+           =================================================================== -->
+      <section class="slide" id="slide-3" data-slide="3" data-title="What's Broken Today">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Market Reality</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">The 3 Structural Breakdowns</div>
+          <h2 class="slide-headline">
+            What's Broken in Today's Market
+          </h2>
+
+          <div class="card-grid-3">
+            <div class="clean-card">
+              <div class="card-num">01.</div>
+              <div class="card-title">No Business Intelligence</div>
+              <div class="card-desc">
+                Millions of daily UPI records exist in payment backends, but zero intelligent insights reach the merchant. Data remains completely dormant.
+              </div>
+              <div style="margin-top: 24px; padding: 10px; background: rgba(0, 119, 251, 0.08); border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--blue-primary);">
+                ⚡ Status: UPI data generated, never synthesized.
+              </div>
+            </div>
+
+            <div class="clean-card">
+              <div class="card-num">02.</div>
+              <div class="card-title">No Inventory Visibility</div>
+              <div class="card-desc">
+                Merchants have no automated system to know what stock will run out tomorrow. They rely on guesswork until customers encounter empty shelves.
+              </div>
+              <div style="margin-top: 24px; padding: 10px; background: rgba(245, 158, 11, 0.08); border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--accent-amber);">
+                ⚠️ Status: Chronic stockouts & capital tied in dead stock.
+              </div>
+            </div>
+
+            <div class="clean-card">
+              <div class="card-num">03.</div>
+              <div class="card-title">No Actionable Execution</div>
+              <div class="card-desc">
+                Dashboards only show historical charts. Merchants lack the time, expertise, and tools to execute proactive promotions or supplier reorders.
+              </div>
+              <div style="margin-top: 24px; padding: 10px; background: rgba(239, 68, 68, 0.08); border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--accent-red);">
+                🛑 Status: Data exists. Insights don't. Action never happens.
+              </div>
+            </div>
+          </div>
+
+          <div class="insight-banner" style="margin-top: 30px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span><strong>The Gap:</strong> SaaS platforms built for enterprises fail 95% of Indian Kiranas who run on WhatsApp, cash, and pen-and-paper.</span>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 03 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 4: THE OPPORTUNITY
+           =================================================================== -->
+      <section class="slide" id="slide-4" data-slide="4" data-title="The Opportunity">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Paytm Unfair Advantage</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">The Strategic Moat</div>
+          <h2 class="slide-headline">
+            Paytm Already Sees Merchant Transactions.<br>
+            <span class="text-blue">The Missing Layer is AI.</span>
+          </h2>
+
+          <div class="flow-pipeline" style="margin: 30px 0;">
+            <div class="flow-step-box">
+              <div style="font-family: var(--font-mono); font-size: 13px; color: var(--blue-primary); font-weight: 700; margin-bottom: 6px;">STEP 01</div>
+              <div style="font-size: 20px; font-weight: 800; margin-bottom: 4px;">Paytm QR & Soundbox</div>
+              <div style="font-size: 13px; color: var(--text-muted);">Ubiquitous merchant point-of-sale touchpoint across 30M+ counters</div>
+            </div>
+
+            <div class="flow-arrow-indicator">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+
+            <div class="flow-step-box">
+              <div style="font-family: var(--font-mono); font-size: 13px; color: var(--blue-primary); font-weight: 700; margin-bottom: 6px;">STEP 02</div>
+              <div style="font-size: 20px; font-weight: 800; margin-bottom: 4px;">UPI Payment Signals</div>
+              <div style="font-size: 13px; color: var(--text-muted);">Real-time transaction volume, amounts, timestamps & repeat buyers</div>
+            </div>
+
+            <div class="flow-arrow-indicator">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+
+            <div class="flow-step-box">
+              <div style="font-family: var(--font-mono); font-size: 13px; color: var(--blue-primary); font-weight: 700; margin-bottom: 6px;">STEP 03</div>
+              <div style="font-size: 20px; font-weight: 800; margin-bottom: 4px;">Merchant Behavior</div>
+              <div style="font-size: 13px; color: var(--text-muted);">Sales cycles, inventory cadence, seasonal velocity & footfall curves</div>
+            </div>
+
+            <div class="flow-arrow-indicator">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+
+            <div class="flow-step-box" style="background: var(--blue-primary); color: #ffffff; border-color: var(--blue-primary);">
+              <div style="font-family: var(--font-mono); font-size: 13px; color: #bae6fd; font-weight: 700; margin-bottom: 6px;">THE MISSING LAYER</div>
+              <div style="font-size: 20px; font-weight: 800; margin-bottom: 4px; color: #ffffff;">Autonomous AI</div>
+              <div style="font-size: 13px; color: #e0f2fe;">Proactive decisions, instant supplier POs & dynamic campaigns</div>
+            </div>
+          </div>
+
+          <div class="insight-banner">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span><strong>The Opportunity:</strong> Millions of Indian businesses already trust Paytm for payment settlement. Adding the Agent layer turns Paytm into their primary Operating System for growth.</span>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 04 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 5: OUR SOLUTION
+           =================================================================== -->
+      <section class="slide theme-dark" id="slide-5" data-slide="5" data-title="Our Solution">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">The Breakthrough</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">Autonomous Intelligence</div>
+          <h2 class="slide-headline" style="margin-bottom: 8px;">
+            Introducing <span class="text-gradient">Paytm Merchant Growth Agent</span>
+          </h2>
+          <div style="font-family: var(--font-mono); font-size: 18px; font-weight: 700; color: #38bdf8; margin-bottom: 24px;">
+            Observe → Understand → Predict → Recommend → Execute
+          </div>
+
+          <div class="split-layout">
+            <div>
+              <p style="font-size: 22px; font-weight: 700; line-height: 1.35; color: #ffffff; margin-bottom: 18px;">
+                Not another chatbot with a search box.<br>
+                A true autonomous business teammate.
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.05); padding: 10px 16px; border-radius: 8px;">
+                  <span style="color: var(--accent-green); font-size: 18px;">✔</span>
+                  <span style="font-size: 15px; font-weight: 600;">Zero user training required — operates via WhatsApp & Voice</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.05); padding: 10px 16px; border-radius: 8px;">
+                  <span style="color: var(--accent-green); font-size: 18px;">✔</span>
+                  <span style="font-size: 15px; font-weight: 600;">Doesn't wait to be asked — proactively sends morning briefings</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.05); padding: 10px 16px; border-radius: 8px;">
+                  <span style="color: var(--accent-green); font-size: 18px;">✔</span>
+                  <span style="font-size: 15px; font-weight: 600;">Closed-loop execution — 1-click merchant approvals</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual: Merchant surrounded by 6 real-time rings -->
+            <div style="display: flex; justify-content: center; align-items: center;">
+              <svg width="420" height="320" viewBox="0 0 420 320" fill="none">
+                <!-- Outer orbit -->
+                <circle cx="210" cy="160" r="135" stroke="#38bdf8" stroke-opacity="0.25" stroke-dasharray="4 4" />
+                
+                <!-- Central Merchant -->
+                <circle cx="210" cy="160" r="48" fill="#0077fb" />
+                <text x="210" y="156" text-anchor="middle" fill="#ffffff" font-weight="800" font-size="13">RAMESH JI</text>
+                <text x="210" y="172" text-anchor="middle" fill="#e0f2fe" font-weight="600" font-size="9">Merchant Center</text>
+
+                <!-- 6 Satellites -->
+                <!-- 1. Sales (Top) -->
+                <circle cx="210" cy="35" r="28" fill="#1e293b" stroke="#0077fb" stroke-width="2"/>
+                <text x="210" y="39" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">SALES</text>
+
+                <!-- 2. Inventory (Top Right) -->
+                <circle cx="325" cy="95" r="28" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+                <text x="325" y="99" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">INVENTORY</text>
+
+                <!-- 3. Forecast (Bottom Right) -->
+                <circle cx="325" cy="225" r="28" fill="#1e293b" stroke="#00c48c" stroke-width="2"/>
+                <text x="325" y="229" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">FORECAST</text>
+
+                <!-- 4. Customers (Bottom) -->
+                <circle cx="210" cy="285" r="28" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+                <text x="210" y="289" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">CUSTOMERS</text>
+
+                <!-- 5. Growth (Bottom Left) -->
+                <circle cx="95" cy="225" r="28" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+                <text x="95" y="229" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">GROWTH</text>
+
+                <!-- 6. Retention (Top Left) -->
+                <circle cx="95" cy="95" r="28" fill="#1e293b" stroke="#ec4899" stroke-width="2"/>
+                <text x="95" y="99" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">RETENTION</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 05 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 6: HOW IT WORKS
+           =================================================================== -->
+      <section class="slide" id="slide-6" data-slide="6" data-title="How It Works">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">System Workflow</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">End-to-End Pipeline</div>
+          <h2 class="slide-headline">
+            From Multimodal Inputs to Autonomous Growth Actions
+          </h2>
+
+          <div style="display: grid; grid-template-columns: 1fr 40px 1.2fr 40px 1fr; gap: 12px; align-items: center; margin: 20px 0;">
+            
+            <!-- Tier 1: Merchant Data Sources -->
+            <div class="clean-card" style="padding: 20px;">
+              <div style="font-size: 13px; font-weight: 700; color: var(--blue-primary); margin-bottom: 8px;">TIER 1: MULTIMODAL INGESTION</div>
+              <div style="font-size: 18px; font-weight: 800; margin-bottom: 14px;">Merchant Data Sources</div>
+              
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600; color: var(--text-dark);">
+                <div style="background: var(--light-bg); padding: 6px 10px; border-radius: 6px;">💳 Paytm UPI Transactions</div>
+                <div style="background: var(--light-bg); padding: 6px 10px; border-radius: 6px;">📸 Ledger Photos (WhatsApp)</div>
+                <div style="background: var(--light-bg); padding: 6px 10px; border-radius: 6px;">🧾 Supplier Invoices (OCR)</div>
+                <div style="background: var(--light-bg); padding: 6px 10px; border-radius: 6px;">🛒 Shelf Snapshots (Vision)</div>
+                <div style="background: var(--light-bg); padding: 6px 10px; border-radius: 6px;">🌦️ Weather, Festivals & IPL</div>
+              </div>
+            </div>
+
+            <!-- Arrow 1 -->
+            <div style="text-align: center; color: var(--blue-primary); font-size: 24px; font-weight: 800;">→</div>
+
+            <!-- Tier 2: AI Intelligence Layer -->
+            <div class="clean-card" style="padding: 20px; background: #f0f7ff; border-color: var(--blue-primary);">
+              <div style="font-size: 13px; font-weight: 700; color: var(--blue-primary); margin-bottom: 8px;">TIER 2: REASONING CORE</div>
+              <div style="font-size: 18px; font-weight: 800; margin-bottom: 14px;">AI Intelligence Engine</div>
+              
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600; color: var(--blue-deep);">
+                <div style="background: #ffffff; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--blue-border);">🧠 Multimodal Perception (YOLO + OCR)</div>
+                <div style="background: #ffffff; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--blue-border);">📈 Time-Series Demand Forecasting</div>
+                <div style="background: #ffffff; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--blue-border);">🤖 LangGraph Multi-Agent Orchestrator</div>
+                <div style="background: #ffffff; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--blue-border);">📊 Merchant Health Scoring Engine</div>
+              </div>
+            </div>
+
+            <!-- Arrow 2 -->
+            <div style="text-align: center; color: var(--blue-primary); font-size: 24px; font-weight: 800;">→</div>
+
+            <!-- Tier 3: Growth Actions -->
+            <div class="clean-card" style="padding: 20px; border-color: var(--accent-green);">
+              <div style="font-size: 13px; font-weight: 700; color: var(--accent-green); margin-bottom: 8px;">TIER 3: ONE-CLICK OUTCOMES</div>
+              <div style="font-size: 18px; font-weight: 800; margin-bottom: 14px;">Autonomous Actions</div>
+              
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600; color: var(--text-dark);">
+                <div style="background: var(--accent-green-bg); padding: 6px 10px; border-radius: 6px; color: #065f46;">💬 Daily WhatsApp Briefing</div>
+                <div style="background: var(--accent-green-bg); padding: 6px 10px; border-radius: 6px; color: #065f46;">📦 Auto Supplier Purchase Orders</div>
+                <div style="background: var(--accent-green-bg); padding: 6px 10px; border-radius: 6px; color: #065f46;">🎯 Targeted Cashback Promos</div>
+                <div style="background: var(--accent-green-bg); padding: 6px 10px; border-radius: 6px; color: #065f46;">📞 Vernacular AI Audio Alerts</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="insight-banner">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+            <span><strong>Frictionless Ingestion:</strong> Merchants don't type a single record. A WhatsApp photo of a bill or shelf is converted into structured business actions in under 3 seconds.</span>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 06 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 7: THE AGENT ECOSYSTEM
+           =================================================================== -->
+      <section class="slide" id="slide-7" data-slide="7" data-title="The Agent Ecosystem">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Multi-Agent Swarm</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">LangGraph Multi-Agent Architecture</div>
+          <h2 class="slide-headline" style="margin-bottom: 16px;">
+            7 Specialized Autonomous Agents Working in Sync
+          </h2>
+
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 12px;">
+            <!-- Agent 1 -->
+            <div class="clean-card" style="padding: 16px;">
+              <span class="agent-pill">01 • BI AGENT</span>
+              <div style="font-size: 16px; font-weight: 700; margin: 8px 0 4px 0;">Business Intelligence</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.35;">
+                Analyzes revenue trends, margin shifts, transaction velocity & anomalies.
+              </div>
+            </div>
+
+            <!-- Agent 2 -->
+            <div class="clean-card" style="padding: 16px;">
+              <span class="agent-pill">02 • DEMAND FORECAST</span>
+              <div style="font-size: 16px; font-weight: 700; margin: 8px 0 4px 0;">Demand Forecast</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.35;">
+                Predicts future item demand based on weather, festivals & local events.
+              </div>
+            </div>
+
+            <!-- Agent 3 -->
+            <div class="clean-card" style="padding: 16px;">
+              <span class="agent-pill">03 • FOOTFALL AGENT</span>
+              <div style="font-size: 16px; font-weight: 700; margin: 8px 0 4px 0;">Footfall Prediction</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.35;">
+                Estimates hourly customer arrival curves and optimal staffing windows.
+              </div>
+            </div>
+
+            <!-- Agent 4 -->
+            <div class="clean-card" style="padding: 16px; border-color: var(--blue-primary); background: #f0f7ff;">
+              <span class="agent-pill" style="background: var(--blue-primary); color: #ffffff;">04 • INVENTORY AGENT</span>
+              <div style="font-size: 16px; font-weight: 700; margin: 8px 0 4px 0;">Inventory Intelligence</div>
+              <div style="font-size: 13px; color: var(--blue-deep); line-height: 1.35;">
+                Reconciles invoice OCR + shelf images to recommend timely replenishment.
+              </div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+            <!-- Agent 5 -->
+            <div class="clean-card" style="padding: 16px;">
+              <span class="agent-pill">05 • RETENTION AGENT</span>
+              <div style="font-size: 16px; font-weight: 700; margin: 8px 0 4px 0;">Customer Retention</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.35;">
+                Identifies churned regulars and crafts automated re-engagement offers.
+              </div>
+            </div>
+
+            <!-- Agent 6 -->
+            <div class="clean-card" style="padding: 16px;">
+              <span class="agent-pill">06 • RECOMMENDATION</span>
+              <div style="font-size: 16px; font-weight: 700; margin: 8px 0 4px 0;">Growth Recommender</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.35;">
+                Synthesizes daily upsell, combo bundles, and margin optimization moves.
+              </div>
+            </div>
+
+            <!-- Agent 7 -->
+            <div class="clean-card" style="padding: 16px;">
+              <span class="agent-pill" style="background: var(--accent-green-bg); color: #065f46; border-color: var(--accent-green);">07 • EXECUTION</span>
+              <div style="font-size: 16px; font-weight: 700; margin: 8px 0 4px 0;">Campaign Executor</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.35;">
+                Deploys merchant-approved cashback vouchers & WhatsApp alerts instantly.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 07 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 8: INVENTORY MANAGEMENT INNOVATION
+           =================================================================== -->
+      <section class="slide" id="slide-8" data-slide="8" data-title="Inventory Innovation">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Core AI Innovation</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">Solving The Hardest Kirana Problem</div>
+          <h2 class="slide-headline">
+            Inventory Tracking Without Barcodes or Manual Entry
+          </h2>
+
+          <div class="split-layout">
+            <div>
+              <div style="font-size: 18px; font-weight: 700; margin-bottom: 16px; color: var(--blue-deep);">
+                The 4-Way Inventory Intelligence Equation:
+              </div>
+              
+              <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px; background: #ffffff; padding: 10px 16px; border-radius: 8px; border: 1px solid var(--light-border);">
+                  <span style="font-family: var(--font-mono); font-weight: 800; color: var(--blue-primary);">01</span>
+                  <span style="font-size: 14px; font-weight: 600;">Supplier Invoice OCR → Captures inward stock and wholesale pricing</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; background: #ffffff; padding: 10px 16px; border-radius: 8px; border: 1px solid var(--light-border);">
+                  <span style="font-family: var(--font-mono); font-weight: 800; color: var(--blue-primary);">02</span>
+                  <span style="font-size: 14px; font-weight: 600;">Shelf Photo AI (YOLO) → Detects facing depth & empty frontages</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; background: #ffffff; padding: 10px 16px; border-radius: 8px; border: 1px solid var(--light-border);">
+                  <span style="font-family: var(--font-mono); font-weight: 800; color: var(--blue-primary);">03</span>
+                  <span style="font-size: 14px; font-weight: 600;">Demand Forecasting → Projects run-rate against festival & weather trends</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; background: #ffffff; padding: 10px 16px; border-radius: 8px; border: 1px solid var(--light-border);">
+                  <span style="font-family: var(--font-mono); font-weight: 800; color: var(--blue-primary);">04</span>
+                  <span style="font-size: 14px; font-weight: 600;">Merchant Feedback Loop → 1-tap confirmation refines model accuracy</span>
+                </div>
+              </div>
+
+              <!-- Badges of Honor -->
+              <div style="display: flex; gap: 12px;">
+                <span style="background: rgba(239, 68, 68, 0.1); color: #dc2626; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 12px;">❌ No POS System</span>
+                <span style="background: rgba(239, 68, 68, 0.1); color: #dc2626; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 12px;">❌ No Barcode Scanner</span>
+                <span style="background: rgba(239, 68, 68, 0.1); color: #dc2626; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 12px;">❌ No Manual Entry</span>
+              </div>
+            </div>
+
+            <!-- Real Kirana Scenario Card -->
+            <div class="clean-card" style="border: 2px solid var(--blue-primary); background: #ffffff;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <span class="agent-pill">LIVE KIRANA SCENARIO</span>
+                <span style="font-size: 12px; color: var(--accent-green); font-weight: 700;">● Real-time AI Estimate</span>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 16px; margin: 16px 0; padding: 14px; background: var(--light-bg); border-radius: 10px;">
+                <div style="font-size: 32px;">🍜</div>
+                <div>
+                  <div style="font-size: 18px; font-weight: 800; color: var(--text-dark);">Maggi 2-Min Noodles (70g)</div>
+                  <div style="font-size: 14px; color: var(--accent-amber); font-weight: 700;">Estimated Remaining: 26 packets (Critically Low)</div>
+                </div>
+              </div>
+
+              <div style="background: #eef6ff; border-left: 4px solid var(--blue-primary); padding: 12px 16px; border-radius: 6px; margin-bottom: 16px;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--blue-primary);">AI RECOMMENDATION</div>
+                <div style="font-size: 15px; font-weight: 700; color: var(--blue-deep); margin-top: 2px;">
+                  "Order 2 cartons (48 pkts) from Gupta Distributors by 11 AM to prevent tomorrow's weekend evening stockout."
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted);">
+                <span>Run-rate: 18 pkts/day</span>
+                <span>Supplier lead time: 24h</span>
+                <span style="color: var(--accent-green); font-weight: 700;">Saved: ₹1,400 Lost Sales</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 08 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 9: WHATSAPP-FIRST EXPERIENCE
+           =================================================================== -->
+      <section class="slide" id="slide-9" data-slide="9" data-title="WhatsApp Experience">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Zero-Friction UX</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="split-layout reversed">
+            <!-- Left Info -->
+            <div>
+              <div class="slide-category">Frictionless Adoption</div>
+              <h2 class="slide-headline">
+                Built For How Merchants Already Work
+              </h2>
+              <p style="font-size: 18px; color: var(--text-muted); line-height: 1.4; margin-bottom: 24px;">
+                Merchants check WhatsApp 40+ times a day. We deliver high-signal business intelligence directly to their primary chat thread.
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div class="clean-card" style="padding: 16px;">
+                  <div style="font-weight: 700; font-size: 15px; color: var(--blue-primary); margin-bottom: 4px;">🌅 8:00 AM Morning Briefing</div>
+                  <div style="font-size: 13.5px; color: var(--text-muted);">Yesterday's settlement, today's footfall forecast, and urgent supplier POs.</div>
+                </div>
+                <div class="clean-card" style="padding: 16px;">
+                  <div style="font-weight: 700; font-size: 15px; color: var(--accent-green); margin-bottom: 4px;">⚡ 1-Click Interactive Approvals</div>
+                  <div style="font-size: 13.5px; color: var(--text-muted);">No app installation or complex navigation. Tap 'Approve' to trigger orders or promos.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Interactive WhatsApp Simulator -->
+            <div class="wa-phone-frame">
+              <div class="wa-header">
+                <div class="wa-avatar">P</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 14px;">Paytm Growth Agent</div>
+                  <div style="font-size: 11px; opacity: 0.85;">● Online | Verified Business</div>
+                </div>
+              </div>
+
+              <div class="wa-body" id="wa-chat-container">
+                <div class="wa-bubble received">
+                  <div style="font-weight: 700; color: #075e54; margin-bottom: 4px;">Good Morning Ramesh Ji! 🌅</div>
+                  <div>Here is your store briefing for today:</div>
+                  <div style="margin: 6px 0; padding: 6px 8px; background: #f0fdf4; border-radius: 6px; font-size: 12.5px;">
+                    <div>• <strong>Yesterday Revenue:</strong> ₹17,500</div>
+                    <div>• <strong>Today Forecast:</strong> ₹19,200 (+10%)</div>
+                    <div>• <strong>Peak Footfall:</strong> 6:00 PM – 8:00 PM</div>
+                  </div>
+                  <div style="margin-top: 6px; color: #dc2626; font-weight: 600; font-size: 12.5px;">
+                    ⚠️ <strong>Inventory Alert:</strong> Maggi Stock Low (Remaining 26 pkts).
+                  </div>
+                  <div style="margin-top: 4px; font-size: 12.5px;">
+                    Recommended: Reorder 3 cartons from Gupta Wholesale.
+                  </div>
+                  <button class="wa-action-btn" id="wa-demo-btn" onclick="simulateApprove()">
+                    <span>Approve Purchase Order (3 Cartons)</span>
+                  </button>
+                  <div class="wa-bubble-time">8:02 AM</div>
+                </div>
+
+                <div class="wa-bubble sent" id="wa-response-bubble" style="display: none;">
+                  <div>✅ Approved. PO sent to Gupta Distributors via WhatsApp API. Dispatch scheduled for 11:30 AM!</div>
+                  <div class="wa-bubble-time">8:05 AM ✓✓</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 09 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 10: VOICE AI AGENT
+           =================================================================== -->
+      <section class="slide" id="slide-10" data-slide="10" data-title="Voice AI Agent">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Vernacular AI</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">Multilingual Conversational AI</div>
+          <h2 class="slide-headline">
+            Speak. Don't Type. <span class="text-blue">100% Vernacular Audio.</span>
+          </h2>
+
+          <div class="split-layout">
+            <!-- Left: Audio Interaction Dialogue -->
+            <div class="clean-card" style="padding: 28px; border-color: var(--blue-primary);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                <span class="agent-pill">LIVE VOICE INTERACTION</span>
+                <span style="font-size: 13px; font-weight: 600; color: var(--accent-green);">● Latency: &lt; 400ms</span>
+              </div>
+
+              <!-- Merchant Speech -->
+              <div style="background: #f8fafc; border-radius: 12px; padding: 14px 18px; margin-bottom: 14px; border-left: 4px solid #64748b;">
+                <div style="font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase;">Merchant (Hindi Audio):</div>
+                <div style="font-size: 18px; font-weight: 700; color: var(--text-dark); margin-top: 4px;">
+                  "आज दुकान के लिए क्या मंगवाना चाहिए?"
+                </div>
+                <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">("What should I order for the shop today?")</div>
+              </div>
+
+              <!-- Animated Waveform -->
+              <div class="voice-visualizer">
+                <div class="voice-bar"></div>
+                <div class="voice-bar"></div>
+                <div class="voice-bar"></div>
+                <div class="voice-bar"></div>
+                <div class="voice-bar"></div>
+                <div class="voice-bar"></div>
+                <div class="voice-bar"></div>
+                <div class="voice-bar"></div>
+              </div>
+
+              <!-- AI Response -->
+              <div style="background: #eff6ff; border-radius: 12px; padding: 14px 18px; border-left: 4px solid var(--blue-primary);">
+                <div style="font-size: 12px; font-weight: 700; color: var(--blue-primary); text-transform: uppercase;">Paytm Agent (Audio Response):</div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--blue-deep); margin-top: 4px;">
+                  "आज तापमान 42°C होने से कोल्ड ड्रिंक की मांग 20% बढ़ेगी। थम्स-अप और स्प्राइट के 2 क्रेट ज्यादा मंगवाना सही रहेगा।"
+                </div>
+                <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+                  ("Temp hitting 42°C will lift cold drink demand by 20%. Ordering 2 extra crates of Thums-Up and Sprite recommended.")
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Multi-language coverage -->
+            <div>
+              <div style="font-size: 20px; font-weight: 800; color: var(--text-dark); margin-bottom: 14px;">
+                Native Support for India's Linguistic Diversity
+              </div>
+              <p style="font-size: 15px; color: var(--text-muted); line-height: 1.45; margin-bottom: 20px;">
+                Over 70% of Bharat merchants prefer communicating in their mother tongue. Our agent natively handles code-mixed Hinglish, Tamil, Bengali, Marathi, and Punjabi speech models.
+              </p>
+
+              <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+                <span class="header-badge" style="background: #f1f5f9; color: var(--text-dark);">🇮🇳 हिन्दी (Hindi)</span>
+                <span class="header-badge" style="background: #f1f5f9; color: var(--text-dark);">🇮🇳 தமிழ் (Tamil)</span>
+                <span class="header-badge" style="background: #f1f5f9; color: var(--text-dark);">🇮🇳 ਪੰਜਾਬੀ (Punjabi)</span>
+                <span class="header-badge" style="background: #f1f5f9; color: var(--text-dark);">🇮🇳 मराठी (Marathi)</span>
+                <span class="header-badge" style="background: #f1f5f9; color: var(--text-dark);">🇮🇳 বাংলা (Bengali)</span>
+                <span class="header-badge" style="background: #f1f5f9; color: var(--text-dark);">🇮🇳 తెలుగు (Telugu)</span>
+                <span class="header-badge" style="background: #f1f5f9; color: var(--text-dark);">🇮🇳 ಕನ್ನಡ (Kannada)</span>
+              </div>
+
+              <div class="insight-banner">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span><strong>Outbound AI Calling:</strong> Agent initiates automated morning check-in calls for merchants who prefer voice over text.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 10 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 11: DEMAND FORECASTING ENGINE
+           =================================================================== -->
+      <section class="slide" id="slide-11" data-slide="11" data-title="Demand Forecasting">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Predictive AI</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">Multivariate Predictive Modeling</div>
+          <h2 class="slide-headline">
+            Predict Tomorrow Before It Happens
+          </h2>
+
+          <div class="split-layout">
+            <!-- Inputs to Outputs Grid -->
+            <div>
+              <div style="font-size: 15px; font-weight: 700; color: var(--blue-primary); margin-bottom: 12px; text-transform: uppercase;">
+                Exogenous Real-World Signals:
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px;">
+                <div class="clean-card" style="padding: 12px 14px;">
+                  <span style="font-size: 18px;">📊</span>
+                  <div style="font-weight: 700; font-size: 14px;">UPI Sales History</div>
+                  <div style="font-size: 11px; color: var(--text-muted);">Seasonal baselines</div>
+                </div>
+                <div class="clean-card" style="padding: 12px 14px;">
+                  <span style="font-size: 18px;">☀️</span>
+                  <div style="font-weight: 700; font-size: 14px;">Weather Feeds</div>
+                  <div style="font-size: 11px; color: var(--text-muted);">Rain, heatwave, humidity</div>
+                </div>
+                <div class="clean-card" style="padding: 12px 14px;">
+                  <span style="font-size: 18px;">🪔</span>
+                  <div style="font-weight: 700; font-size: 14px;">Festival Calendar</div>
+                  <div style="font-size: 11px; color: var(--text-muted);">Diwali, Eid, Holi spikes</div>
+                </div>
+                <div class="clean-card" style="padding: 12px 14px;">
+                  <span style="font-size: 18px;">🏏</span>
+                  <div style="font-weight: 700; font-size: 14px;">IPL & Local Matches</div>
+                  <div style="font-size: 11px; color: var(--text-muted);">Snacks & beverage surge</div>
+                </div>
+              </div>
+
+              <div style="background: var(--blue-light); border-radius: 8px; padding: 12px 16px; border-left: 4px solid var(--blue-primary); font-size: 14px; font-weight: 600; color: var(--blue-deep);">
+                🎯 <strong>Precision Output:</strong> Expected Daily Revenue (₹) + Hourly Footfall Heatmap + Item Replenishment Plan.
+              </div>
+            </div>
+
+            <!-- Visual Graph SVG -->
+            <div class="clean-card" style="padding: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div style="font-size: 15px; font-weight: 800;">Hourly Demand vs. Actual (Kirana Store)</div>
+                <span style="font-size: 11px; background: #e0f2fe; color: #0284c7; padding: 4px 8px; border-radius: 4px; font-weight: 700;">LightGBM Engine</span>
+              </div>
+
+              <!-- SVG Curve -->
+              <svg width="100%" height="180" viewBox="0 0 400 180">
+                <!-- Grid lines -->
+                <line x1="40" y1="20" x2="380" y2="20" stroke="#f1f5f9" stroke-width="1"/>
+                <line x1="40" y1="60" x2="380" y2="60" stroke="#f1f5f9" stroke-width="1"/>
+                <line x1="40" y1="100" x2="380" y2="100" stroke="#f1f5f9" stroke-width="1"/>
+                <line x1="40" y1="140" x2="380" y2="140" stroke="#e2e8f0" stroke-width="1"/>
+                
+                <!-- Y-labels -->
+                <text x="32" y="24" text-anchor="end" font-size="10" fill="#94a3b8">₹6k</text>
+                <text x="32" y="64" text-anchor="end" font-size="10" fill="#94a3b8">₹4k</text>
+                <text x="32" y="104" text-anchor="end" font-size="10" fill="#94a3b8">₹2k</text>
+                <text x="32" y="144" text-anchor="end" font-size="10" fill="#94a3b8">0</text>
+
+                <!-- Confidence Band -->
+                <polygon points="50,130 100,110 160,95 220,105 280,35 340,50 370,110 370,130 340,80 280,60 220,125 160,115 100,125 50,140" fill="#0077fb" fill-opacity="0.12"/>
+
+                <!-- Forecast Curve (Blue) -->
+                <path d="M50 135 Q 100 118 160 105 T 280 48 T 370 120" fill="none" stroke="#0077fb" stroke-width="3"/>
+                
+                <!-- Peak Indicator -->
+                <circle cx="280" cy="48" r="6" fill="#0077fb"/>
+                <text x="280" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#0077fb">IPL Peak: 7-9 PM</text>
+
+                <!-- X-labels -->
+                <text x="50" y="160" text-anchor="middle" font-size="10" fill="#64748b">9 AM</text>
+                <text x="160" y="160" text-anchor="middle" font-size="10" fill="#64748b">1 PM</text>
+                <text x="280" y="160" text-anchor="middle" font-size="10" fill="#64748b">7 PM</text>
+                <text x="370" y="160" text-anchor="middle" font-size="10" fill="#64748b">10 PM</text>
+              </svg>
+
+              <div style="display: flex; justify-content: space-around; font-size: 12px; font-weight: 600; margin-top: 8px;">
+                <span style="color: var(--blue-primary);">● AI Forecast Accuracy: 93.4%</span>
+                <span style="color: var(--accent-green);">● Footfall Surge Detected 8 hrs prior</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 11 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 12: MERCHANT HEALTH SCORE
+           =================================================================== -->
+      <section class="slide" id="slide-12" data-slide="12" data-title="Merchant Health Score">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Proprietary Metric</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">Business Health Benchmark</div>
+          <h2 class="slide-headline">
+            Merchant Health Score: <span class="text-blue">The CIBIL for Small Businesses</span>
+          </h2>
+
+          <div class="health-score-card">
+            <!-- Radial SVG Gauge -->
+            <div class="score-circle-container">
+              <svg width="190" height="190" viewBox="0 0 190 190">
+                <circle cx="95" cy="95" r="80" stroke="#f1f5f9" stroke-width="16" fill="none"/>
+                <!-- 82% circumference stroke = 2 * PI * 80 * 0.82 = 412 of 502 -->
+                <circle cx="95" cy="95" r="80" stroke="url(#score-gradient)" stroke-width="16" fill="none"
+                  stroke-dasharray="502" stroke-dashoffset="90" stroke-linecap="round"
+                  transform="rotate(-90 95 95)" />
+                <defs>
+                  <linearGradient id="score-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0077fb" />
+                    <stop offset="100%" stop-color="#00c48c" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="score-text-center">
+                <div class="score-big-number">82</div>
+                <div style="font-size: 13px; font-weight: 700; color: #64748b;">OUT OF 100</div>
+                <div class="score-label">EXCELLENT</div>
+              </div>
+            </div>
+
+            <!-- Breakdown 5 Pillars -->
+            <div style="flex: 1;">
+              <div style="font-size: 16px; font-weight: 800; color: var(--text-dark); margin-bottom: 14px;">
+                Dynamic Score Composition (Calculated Daily):
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
+                    <span>📈 Revenue Growth Trend</span>
+                    <span style="color: var(--accent-green);">88 / 100</span>
+                  </div>
+                  <div style="width: 100%; height: 8px; background: #f1f5f9; border-radius: 100px; overflow: hidden;">
+                    <div style="width: 88%; height: 100%; background: var(--accent-green); border-radius: 100px;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
+                    <span>📦 Inventory Health & Turn-Rate</span>
+                    <span style="color: var(--blue-primary);">76 / 100</span>
+                  </div>
+                  <div style="width: 100%; height: 8px; background: #f1f5f9; border-radius: 100px; overflow: hidden;">
+                    <div style="width: 76%; height: 100%; background: var(--blue-primary); border-radius: 100px;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
+                    <span>👥 Customer Retention & Repeat Visits</span>
+                    <span style="color: var(--blue-primary);">84 / 100</span>
+                  </div>
+                  <div style="width: 100%; height: 8px; background: #f1f5f9; border-radius: 100px; overflow: hidden;">
+                    <div style="width: 84%; height: 100%; background: var(--blue-primary); border-radius: 100px;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
+                    <span>💳 UPI Transaction Consistency</span>
+                    <span style="color: var(--accent-green);">90 / 100</span>
+                  </div>
+                  <div style="width: 100%; height: 8px; background: #f1f5f9; border-radius: 100px; overflow: hidden;">
+                    <div style="width: 90%; height: 100%; background: var(--accent-green); border-radius: 100px;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
+                    <span>🛡️ Business Resilience & Cash Margin</span>
+                    <span style="color: var(--accent-amber);">72 / 100</span>
+                  </div>
+                  <div style="width: 100%; height: 8px; background: #f1f5f9; border-radius: 100px; overflow: hidden;">
+                    <div style="width: 72%; height: 100%; background: var(--accent-amber); border-radius: 100px;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="insight-banner">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span><strong>Paytm Lending Synergy:</strong> Health Scores unlock instant, pre-approved working capital loans for merchants without tedious paperwork.</span>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 12 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 13: LOST REVENUE DETECTOR
+           =================================================================== -->
+      <section class="slide" id="slide-13" data-slide="13" data-title="Lost Revenue Detector">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Revenue Leakage AI</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">Proactive Revenue Protection</div>
+          <h2 class="slide-headline">
+            Identify Hidden Revenue Leakage Before It Compounds
+          </h2>
+
+          <div class="split-layout">
+            <!-- Left: Numbers and Root Cause -->
+            <div>
+              <div class="card-grid-3" style="margin-bottom: 20px;">
+                <div class="clean-card" style="padding: 16px;">
+                  <div style="font-size: 11px; font-weight: 700; color: #64748b;">EXPECTED REVENUE</div>
+                  <div style="font-size: 28px; font-weight: 800; color: var(--text-dark); margin-top: 4px;">₹18,000</div>
+                  <div style="font-size: 11px; color: var(--blue-primary);">AI Friday Baseline</div>
+                </div>
+
+                <div class="clean-card" style="padding: 16px;">
+                  <div style="font-size: 11px; font-weight: 700; color: #64748b;">ACTUAL REVENUE</div>
+                  <div style="font-size: 28px; font-weight: 800; color: var(--text-dark); margin-top: 4px;">₹12,000</div>
+                  <div style="font-size: 11px; color: var(--accent-amber);">Settled UPI Amount</div>
+                </div>
+
+                <div class="clean-card" style="padding: 16px; border-color: var(--accent-red); background: rgba(239, 68, 68, 0.05);">
+                  <div style="font-size: 11px; font-weight: 700; color: var(--accent-red);">LOST OPPORTUNITY</div>
+                  <div style="font-size: 28px; font-weight: 800; color: var(--accent-red); margin-top: 4px;">-₹6,000</div>
+                  <div style="font-size: 11px; color: var(--accent-red); font-weight: 700;">Revenue Leakage</div>
+                </div>
+              </div>
+
+              <div style="background: #ffffff; border: 1px solid var(--light-border); border-radius: var(--radius-md); padding: 18px;">
+                <div style="font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">
+                  🔍 AI Root Cause Diagnosis:
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+                  <div>• <strong>4:30 PM:</strong> Cold drinks and ice cream ran out of stock right as afternoon temperature reached 41°C. (Est. loss: ₹3,800)</div>
+                  <div>• <strong>7:00 PM:</strong> UPI transaction drop correlated with sudden 30-min rain spell; zero delivery backup. (Est. loss: ₹2,200)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Waterfall visualization -->
+            <div class="clean-card" style="padding: 24px;">
+              <div style="font-size: 16px; font-weight: 800; margin-bottom: 14px;">Daily Revenue Opportunity Bridge</div>
+              
+              <svg width="100%" height="200" viewBox="0 0 360 200">
+                <!-- Bar 1: Expected -->
+                <rect x="30" y="30" width="65" height="140" fill="#0077fb" rx="6"/>
+                <text x="62" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#0077fb">₹18k</text>
+                <text x="62" y="190" text-anchor="middle" font-size="11" fill="#64748b">Expected</text>
+
+                <!-- Leak 1: Stockout -->
+                <rect x="115" y="30" width="55" height="40" fill="#ef4444" rx="4"/>
+                <text x="142" y="55" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">-₹3.8k</text>
+                <text x="142" y="85" text-anchor="middle" font-size="9" fill="#ef4444">Stockout</text>
+
+                <!-- Leak 2: Weather -->
+                <rect x="190" y="70" width="55" height="25" fill="#f59e0b" rx="4"/>
+                <text x="217" y="88" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">-₹2.2k</text>
+                <text x="217" y="110" text-anchor="middle" font-size="9" fill="#f59e0b">Rain/Downtime</text>
+
+                <!-- Bar 2: Actual -->
+                <rect x="265" y="95" width="65" height="75" fill="#00c48c" rx="6"/>
+                <text x="297" y="88" text-anchor="middle" font-size="12" font-weight="700" fill="#00c48c">₹12k</text>
+                <text x="297" y="190" text-anchor="middle" font-size="11" fill="#64748b">Captured</text>
+              </svg>
+
+              <div style="font-size: 12.5px; color: var(--text-muted); text-align: center; margin-top: 6px;">
+                AI prevents the ₹6k loss next cycle by pre-ordering beverages 12h prior.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 13 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 14: FROM RECOMMENDATION TO EXECUTION
+           =================================================================== -->
+      <section class="slide" id="slide-14" data-slide="14" data-title="Agentic Execution">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Agentic AI</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">Closed-Loop Autonomous Action</div>
+          <h2 class="slide-headline">
+            True Agentic AI: <span class="text-blue">The AI Does Not Just Advise. It Acts.</span>
+          </h2>
+
+          <div class="flow-pipeline" style="margin: 28px 0;">
+            <div class="flow-step-box">
+              <div style="font-family: var(--font-mono); font-size: 12px; color: var(--accent-red); font-weight: 700;">STAGE 01</div>
+              <div style="font-size: 18px; font-weight: 800; margin: 6px 0;">Sales Drop Detected</div>
+              <div style="font-size: 12px; color: var(--text-muted);">BI Agent senses 25% footfall dip during 3 PM lull</div>
+            </div>
+
+            <div class="flow-arrow-indicator">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+
+            <div class="flow-step-box">
+              <div style="font-family: var(--font-mono); font-size: 12px; color: var(--blue-primary); font-weight: 700;">STAGE 02</div>
+              <div style="font-size: 18px; font-weight: 800; margin: 6px 0;">AI Drafts Campaign</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Generates 5% cash-back on ₹200+ snacks basket</div>
+            </div>
+
+            <div class="flow-arrow-indicator">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+
+            <div class="flow-step-box" style="border: 2px solid var(--blue-primary);">
+              <div style="font-family: var(--font-mono); font-size: 12px; color: var(--blue-primary); font-weight: 700;">STAGE 03</div>
+              <div style="font-size: 18px; font-weight: 800; margin: 6px 0;">Merchant Approves</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Single tap on WhatsApp prompt in under 5 seconds</div>
+            </div>
+
+            <div class="flow-arrow-indicator">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+
+            <div class="flow-step-box">
+              <div style="font-family: var(--font-mono); font-size: 12px; color: #8b5cf6; font-weight: 700;">STAGE 04</div>
+              <div style="font-size: 18px; font-weight: 800; margin: 6px 0;">Campaign Deployed</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Dispatched to nearby Paytm app users within 500m</div>
+            </div>
+
+            <div class="flow-arrow-indicator">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+
+            <div class="flow-step-box" style="background: var(--accent-green-bg); border-color: var(--accent-green);">
+              <div style="font-family: var(--font-mono); font-size: 12px; color: #065f46; font-weight: 700;">STAGE 05</div>
+              <div style="font-size: 18px; font-weight: 800; margin: 6px 0; color: #065f46;">Revenue Surges</div>
+              <div style="font-size: 12px; color: #047857;">+₹2,400 incremental sales achieved in 90 minutes</div>
+            </div>
+          </div>
+
+          <div class="insight-banner">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span><strong>Human-in-the-Loop Safeguard:</strong> The agent acts autonomously, but always honors merchant authority via quick 1-click WhatsApp confirmations.</span>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 14 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 15: TECHNICAL ARCHITECTURE
+           =================================================================== -->
+      <section class="slide theme-dark" id="slide-15" data-slide="15" data-title="Technical Architecture">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">System Architecture</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">Enterprise Architecture Diagram</div>
+          <h2 class="slide-headline" style="margin-bottom: 20px;">
+            Production Multi-Tier Agent Architecture
+          </h2>
+
+          <!-- Clean Enterprise Architecture Stack -->
+          <div style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+            
+            <!-- Tier 1: Ingestion -->
+            <div style="background: #182030; border: 1px solid #283548; border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: #38bdf8; font-weight: 700; width: 180px;">DATA SOURCES LAYER</span>
+              <div style="display: flex; gap: 12px; flex: 1; justify-content: flex-end;">
+                <span class="header-badge" style="background: #0f172a;">Paytm UPI Stream (Kafka)</span>
+                <span class="header-badge" style="background: #0f172a;">Document AI / Bill OCR</span>
+                <span class="header-badge" style="background: #0f172a;">Shelf Vision Models</span>
+                <span class="header-badge" style="background: #0f172a;">External APIs (Weather, Events)</span>
+              </div>
+            </div>
+
+            <!-- Tier 2: Storage -->
+            <div style="background: #182030; border: 1px solid #283548; border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: #38bdf8; font-weight: 700; width: 180px;">DATA LAKEHOUSE</span>
+              <div style="display: flex; gap: 12px; flex: 1; justify-content: flex-end;">
+                <span class="header-badge" style="background: #0f172a;">PostgreSQL (Transactions)</span>
+                <span class="header-badge" style="background: #0f172a;">MongoDB (Unstructured Invoices)</span>
+                <span class="header-badge" style="background: #0f172a;">Vector DB (Item Embeddings)</span>
+                <span class="header-badge" style="background: #0f172a;">Redis Cache (Sub-10ms Session State)</span>
+              </div>
+            </div>
+
+            <!-- Tier 3: Orchestration (LangGraph) -->
+            <div style="background: linear-gradient(90deg, #002970 0%, #0077fb 100%); border: 1px solid #60a5fa; border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-family: var(--font-mono); font-size: 13px; color: #ffffff; font-weight: 800; width: 220px;">⚡ LANGGRAPH AGENT CORE</span>
+              <div style="display: flex; gap: 8px; flex: 1; justify-content: flex-end; font-size: 12px; font-weight: 700;">
+                <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px;">StateGraph</span>
+                <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px;">7 Multi-Agents</span>
+                <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px;">Checkpointers</span>
+                <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px;">Guardrails</span>
+              </div>
+            </div>
+
+            <!-- Tier 4: LLM & ML -->
+            <div style="background: #182030; border: 1px solid #283548; border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: #38bdf8; font-weight: 700; width: 180px;">MODELS & INFERENCE</span>
+              <div style="display: flex; gap: 12px; flex: 1; justify-content: flex-end;">
+                <span class="header-badge" style="background: #0f172a;">DeepSeek / GPT-4o Mini</span>
+                <span class="header-badge" style="background: #0f172a;">Qwen 2.5 (Vernacular)</span>
+                <span class="header-badge" style="background: #0f172a;">LightGBM (Time Series)</span>
+                <span class="header-badge" style="background: #0f172a;">YOLOv10 (Shelf Perception)</span>
+              </div>
+            </div>
+
+            <!-- Tier 5: Delivery UI -->
+            <div style="background: #182030; border: 1px solid #283548; border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: #00c48c; font-weight: 700; width: 180px;">DELIVERY INTERFACES</span>
+              <div style="display: flex; gap: 12px; flex: 1; justify-content: flex-end;">
+                <span class="header-badge" style="background: rgba(37, 211, 102, 0.2); color: #25D366; border-color: #25D366;">WhatsApp Business Cloud API</span>
+                <span class="header-badge" style="background: rgba(0, 119, 251, 0.2); color: #60a5fa;">Paytm Merchant App SDK</span>
+                <span class="header-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">Outbound Voice AI Calls</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 15 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 16: TECH STACK
+           =================================================================== -->
+      <section class="slide" id="slide-16" data-slide="16" data-title="Technology Stack">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Production Ready</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">Engineering Specifications</div>
+          <h2 class="slide-headline">
+            Built with Modern, Battle-Tested Frameworks
+          </h2>
+
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+            
+            <div class="clean-card" style="padding: 18px;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--blue-primary); margin-bottom: 6px;">BACKEND SERVICES</div>
+              <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">FastAPI & Node.js</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.4;">
+                Asynchronous microservices with Celery task queues & Redis pub/sub.
+              </div>
+            </div>
+
+            <div class="clean-card" style="padding: 18px;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--blue-primary); margin-bottom: 6px;">DATA INFRASTRUCTURE</div>
+              <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">PostgreSQL & Mongo</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.4;">
+                ACID transactions for billing, MongoDB for raw invoices & Kafka streaming.
+              </div>
+            </div>
+
+            <div class="clean-card" style="padding: 18px;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--blue-primary); margin-bottom: 6px;">AGENT FRAMEWORK</div>
+              <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">LangGraph Core</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.4;">
+                Deterministic graph flows with human interrupts, persistent state & retries.
+              </div>
+            </div>
+
+            <div class="clean-card" style="padding: 18px;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--blue-primary); margin-bottom: 6px;">LLM FOUNDATION</div>
+              <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">GPT-4o, Llama & Qwen</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.4;">
+                Qwen 2.5 for multilingual translation and GPT-4o for complex planning.
+              </div>
+            </div>
+
+            <div class="clean-card" style="padding: 18px;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--accent-green); margin-bottom: 6px;">VISION & OCR</div>
+              <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">YOLOv10 + DocAI</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.4;">
+                Real-time FMCG packaging detection and zero-shot table invoice extraction.
+              </div>
+            </div>
+
+            <div class="clean-card" style="padding: 18px;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--accent-green); margin-bottom: 6px;">FORECASTING MODELS</div>
+              <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">LightGBM & Prophet</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.4;">
+                High-speed gradient boosting incorporating weather & event covariates.
+              </div>
+            </div>
+
+            <div class="clean-card" style="padding: 18px;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--accent-green); margin-bottom: 6px;">COMMUNICATION</div>
+              <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">WhatsApp Cloud API</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.4;">
+                Meta Cloud API webhooks with 99.99% delivery reliability across India.
+              </div>
+            </div>
+
+            <div class="clean-card" style="padding: 18px;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--accent-green); margin-bottom: 6px;">CLOUD DEPLOYMENT</div>
+              <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">AWS & Docker</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.4;">
+                Auto-scaling ECS Fargate clusters compliant with RBI data residency laws.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 16 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 17: SCALABILITY
+           =================================================================== -->
+      <section class="slide" id="slide-17" data-slide="17" data-title="Scalability">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Massive Distribution</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">Zero Marginal Friction</div>
+          <h2 class="slide-headline">
+            Built to Scale to 10M+ Indian Merchants Overnight
+          </h2>
+
+          <!-- Scale Metric Banner -->
+          <div style="display: flex; justify-content: space-between; align-items: center; background: #ffffff; border: 1px solid var(--light-border); border-radius: var(--radius-md); padding: 20px 32px; margin: 16px 0 24px 0; box-shadow: var(--shadow-sm);">
+            <div style="text-align: center;">
+              <div style="font-family: var(--font-display); font-size: 38px; font-weight: 800; color: #64748b;">1</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--text-muted);">Pilot Store</div>
+            </div>
+            <div style="color: var(--blue-primary); font-size: 24px;">→</div>
+            <div style="text-align: center;">
+              <div style="font-family: var(--font-display); font-size: 38px; font-weight: 800; color: var(--blue-primary);">1,000</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--text-muted);">Noida Cluster</div>
+            </div>
+            <div style="color: var(--blue-primary); font-size: 24px;">→</div>
+            <div style="text-align: center;">
+              <div style="font-family: var(--font-display); font-size: 38px; font-weight: 800; color: var(--blue-deep);">100,000</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--text-muted);">Metro Rollout</div>
+            </div>
+            <div style="color: var(--blue-primary); font-size: 24px;">→</div>
+            <div style="text-align: center;">
+              <div style="font-family: var(--font-display); font-size: 38px; font-weight: 800; color: var(--accent-green);">10,000,000+</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--accent-green);">Pan-India Ecosystem</div>
+            </div>
+          </div>
+
+          <div class="card-grid-3">
+            <div class="clean-card">
+              <div style="font-size: 28px; margin-bottom: 8px;">📲</div>
+              <div class="card-title">No New App to Download</div>
+              <div class="card-desc">Lives inside WhatsApp and the existing Paytm for Business app already on 30M+ phones.</div>
+            </div>
+
+            <div class="clean-card">
+              <div style="font-size: 28px; margin-bottom: 8px;">🔌</div>
+              <div class="card-title">No Hardware Costs</div>
+              <div class="card-desc">Zero barcode readers or POS terminals. Uses the merchant's smartphone camera and QR audio.</div>
+            </div>
+
+            <div class="clean-card">
+              <div style="font-size: 28px; margin-bottom: 8px;">🎓</div>
+              <div class="card-title">Zero Merchant Training</div>
+              <div class="card-desc">Voice notes and tap-to-approve buttons match natural human habits. Instant Day-1 value.</div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 17 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 18: BUSINESS IMPACT
+           =================================================================== -->
+      <section class="slide" id="slide-18" data-slide="18" data-title="Business Impact">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">ROI & Ecosystem Moat</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">Win-Win Value Creation</div>
+          <h2 class="slide-headline">
+            Transformative ROI for Merchants & Strategic Moat for Paytm
+          </h2>
+
+          <div class="card-grid-2" style="margin-top: 10px;">
+            <!-- Column 1: For Merchants -->
+            <div class="clean-card" style="border-top: 6px solid var(--accent-green);">
+              <div style="font-size: 14px; font-weight: 700; color: var(--accent-green); margin-bottom: 12px; text-transform: uppercase;">
+                FOR MERCHANTS (THE PROMISE)
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <div style="font-family: var(--font-display); font-size: 32px; font-weight: 800; color: var(--accent-green); width: 100px;">+18%</div>
+                  <div style="font-size: 14px; font-weight: 600;">Average Revenue Growth through timely cross-sells & demand capture</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <div style="font-family: var(--font-display); font-size: 32px; font-weight: 800; color: var(--accent-green); width: 100px;">-45%</div>
+                  <div style="font-size: 14px; font-weight: 600;">Reduction in Costly Stock-Outs on fast-moving household items</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <div style="font-family: var(--font-display); font-size: 32px; font-weight: 800; color: var(--accent-green); width: 100px;">+25%</div>
+                  <div style="font-size: 14px; font-weight: 600;">Customer Retention boost through smart cashback loyalty triggers</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 2: For Paytm -->
+            <div class="clean-card" style="border-top: 6px solid var(--blue-primary);">
+              <div style="font-size: 14px; font-weight: 700; color: var(--blue-primary); margin-bottom: 12px; text-transform: uppercase;">
+                FOR PAYTM (THE MOAT)
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <div style="font-family: var(--font-display); font-size: 32px; font-weight: 800; color: var(--blue-primary); width: 100px;">+35%</div>
+                  <div style="font-size: 14px; font-weight: 600;">Merchant App Daily Active Engagement (DAU/MAU)</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <div style="font-family: var(--font-display); font-size: 32px; font-weight: 800; color: var(--blue-primary); width: 100px;">3x</div>
+                  <div style="font-size: 14px; font-weight: 600;">Higher Soundbox & QR Retention — impossible to switch to PhonePe/GPay</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <div style="font-family: var(--font-display); font-size: 32px; font-weight: 800; color: var(--blue-primary); width: 100px;">New $$</div>
+                  <div style="font-size: 14px; font-weight: 600;">Direct SaaS & Fintech Revenue: AI Subscriptions & Lending commissions</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 18 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 19: FUTURE ROADMAP
+           =================================================================== -->
+      <section class="slide" id="slide-19" data-slide="19" data-title="Future Roadmap">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Execution Roadmap</span>
+        </header>
+
+        <div class="slide-body">
+          <div class="slide-category">5-Phase Evolution Plan</div>
+          <h2 class="slide-headline">
+            From Daily Insights to Fully Autonomous Operations
+          </h2>
+
+          <div style="display: flex; justify-content: space-between; position: relative; margin: 30px 0;">
+            <!-- Phase Line -->
+            <div style="position: absolute; top: 32px; left: 5%; right: 5%; height: 4px; background: #e2e8f0; z-index: 1;"></div>
+
+            <!-- Phase 1 -->
+            <div style="position: relative; z-index: 2; width: 18%; text-align: center;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--blue-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; margin: 10px auto 16px auto; box-shadow: 0 0 16px var(--blue-glow);">1</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--blue-primary);">PHASE 1 (MVP)</div>
+              <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">Merchant Insights</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Daily settlement summaries & UPI trend reports via WhatsApp.</div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div style="position: relative; z-index: 2; width: 18%; text-align: center;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 3px solid var(--blue-primary); color: var(--blue-primary); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; margin: 10px auto 16px auto;">2</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--blue-primary);">PHASE 2</div>
+              <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">Predictive Engine</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Footfall hourly forecast, weather alerts & festival readiness.</div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div style="position: relative; z-index: 2; width: 18%; text-align: center;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 3px solid var(--blue-primary); color: var(--blue-primary); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; margin: 10px auto 16px auto;">3</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--blue-primary);">PHASE 3</div>
+              <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">Inventory AI</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Supplier invoice OCR + shelf image stock tracking & PO generator.</div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div style="position: relative; z-index: 2; width: 18%; text-align: center;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 3px solid var(--blue-primary); color: var(--blue-primary); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; margin: 10px auto 16px auto;">4</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--blue-primary);">PHASE 4</div>
+              <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">Campaign Runner</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Automated hyperlocal Paytm app promos & cashback blasts.</div>
+            </div>
+
+            <!-- Phase 5 -->
+            <div style="position: relative; z-index: 2; width: 18%; text-align: center;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--accent-green); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; margin: 10px auto 16px auto; box-shadow: 0 0 16px rgba(0, 196, 140, 0.4);">5</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--accent-green);">PHASE 5</div>
+              <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">Autonomous Co-pilot</div>
+              <div style="font-size: 12px; color: var(--text-muted);">End-to-end autonomous business co-pilot managing procurement & credit.</div>
+            </div>
+
+          </div>
+
+          <div class="insight-banner">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span><strong>Hackathon Status:</strong> Phase 1 & 2 fully implemented with live WhatsApp API hooks and multi-agent LangGraph orchestrator.</span>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 19 / 20</span>
+          <span class="footer-tagline">The AI Teammate That Runs Alongside Every Merchant</span>
+        </footer>
+      </section>
+
+
+      <!-- ===================================================================
+           SLIDE 20: CLOSING
+           =================================================================== -->
+      <section class="slide theme-dark" id="slide-20" data-slide="20" data-title="Closing & Vision">
+        <header class="slide-header">
+          <div class="header-left">
+            <div class="paytm-dot"></div>
+            <span class="header-logo-text">Paytm Merchant Growth Agent</span>
+          </div>
+          <span class="header-badge">Build for India 2026</span>
+        </header>
+
+        <div class="slide-body" style="text-align: center; align-items: center;">
+          <div class="slide-category" style="justify-content: center;">From Payments To Growth</div>
+          
+          <h2 class="slide-headline large" style="margin: 12px auto 16px auto; max-width: 900px;">
+            Every Indian Merchant Deserves an <span class="text-gradient">AI Business Teammate.</span>
+          </h2>
+
+          <p style="font-size: 24px; font-weight: 600; color: #94a3b8; max-width: 780px; margin: 0 auto 32px auto; line-height: 1.4;">
+            Paytm Merchant Growth Agent transforms payment data into everyday business growth — without new apps, hardware, or complexity.
+          </p>
+
+          <!-- Grand Summary Tagline Pill -->
+          <div style="display: inline-flex; align-items: center; gap: 18px; background: rgba(0, 119, 251, 0.15); border: 2px solid #0077fb; padding: 16px 36px; border-radius: 100px; box-shadow: 0 0 35px rgba(0, 119, 251, 0.3);">
+            <span style="font-family: var(--font-mono); font-size: 16px; font-weight: 800; color: #ffffff; letter-spacing: 0.08em;">
+              OBSERVE → UNDERSTAND → PREDICT → RECOMMEND → EXECUTE
+            </span>
+          </div>
+
+          <div style="display: flex; gap: 40px; margin-top: 40px; color: #64748b; font-size: 14px; font-weight: 600;">
+            <div>🏆 <strong>Paytm Build for India</strong> AI Hackathon</div>
+            <div>⚡ <strong>Track:</strong> Merchant Growth AI</div>
+            <div>👥 <strong>Presented by:</strong> <span style="color: #38bdf8;">Team Sentinels (Akshat Arya and Mayank Yadav)</span></div>
+          </div>
+        </div>
+
+        <footer class="slide-footer">
+          <span class="footer-page-num">PAGE 20 / 20</span>
+          <span class="footer-tagline">Thank You • Questions & Discussion</span>
+        </footer>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Sticky Bottom Presentation Controls -->
+  <div id="deck-controls">
+    <button class="ctrl-btn" id="btn-prev" title="Previous Slide (Left Arrow)">◀</button>
+    <div class="ctrl-indicator" id="slide-indicator">01 / 20</div>
+    <button class="ctrl-btn" id="btn-next" title="Next Slide (Right Arrow or Space)">▶</button>
+    
+    <div class="ctrl-divider"></div>
+
+    <button class="ctrl-btn" id="btn-overview" title="Slide Overview Grid (G)">☷</button>
+    <button class="ctrl-btn" id="btn-fullscreen" title="Fullscreen (F)">⛶</button>
+    <button class="ctrl-btn" id="btn-print" title="Print to PDF (P)">🖨️</button>
+    <div class="ctrl-divider"></div>
+    <a href="deck_presentation.html" class="ctrl-btn" style="text-decoration: none; color: #38bdf8; font-weight: 700; font-size: 13px; padding: 0 14px; display: inline-flex; align-items: center;" title="Open 11-Slide Figma Deck">📄 11-Slide Deck</a>
+    <a href="Paytm_Merchant_Growth_Agent_Pitch_Deck.pdf" download class="ctrl-btn" style="text-decoration: none; color: #22c55e; font-weight: 700; font-size: 13px; padding: 0 14px; display: inline-flex; align-items: center;" title="Download PDF">📥 PDF</a>
+  </div>
+
+  <!-- Slide Overview Grid Modal -->
+  <div id="overview-modal">
+    <div class="overview-header">
+      <div style="font-family: var(--font-display); font-size: 26px; font-weight: 800;">Slide Overview (20 Slides)</div>
+      <button class="ctrl-btn" id="btn-close-overview" style="font-size: 20px;">✕</button>
+    </div>
+    <div class="overview-grid" id="overview-grid">
+      <!-- Injected via JavaScript -->
+    </div>
+  </div>
+
+  <script src="deck.js"></script>
+</body>
+</html>

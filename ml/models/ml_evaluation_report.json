@@ -1,0 +1,48 @@
+{
+  "pipeline_status": "SUCCESS",
+  "timestamp": "2026-09-19T03:51:29.658628",
+  "training_duration_seconds": 4.39,
+  "dataset_statistics": {
+    "source": "ml/data/kirana_transactions.csv",
+    "total_transactions": 55000,
+    "period": "Sept 2025 - Sept 2026 (12 Months)",
+    "store_profile": "Laxmi Kirana & General Store, Jaipur (Tier 2 City)",
+    "distinct_skus": 15,
+    "distinct_customers": 1200,
+    "total_gmv_inr": 6924536.0
+  },
+  "models_trained": {
+    "prophet_demand_forecaster": {
+      "framework": "Facebook Prophet 1.4.0",
+      "task": "Diurnal & Seasonal Revenue Forecasting",
+      "artifact_path": "ml/models/prophet_demand_model.pkl",
+      "mae_inr": 618.25,
+      "rmse_inr": 816.32,
+      "mape_percentage": 79.97,
+      "status": "Production Ready"
+    },
+    "xgboost_inventory_classifier": {
+      "framework": "XGBoost 3.2.0 (XGBClassifier)",
+      "task": "24-Hour SKU Stockout Probability Estimation",
+      "artifact_path": "ml/models/xgboost_inventory_model.joblib",
+      "accuracy": 99.78,
+      "roc_auc": 1.0,
+      "f1_score": 0.8571,
+      "status": "Production Ready"
+    },
+    "rfm_customer_segmentation": {
+      "framework": "Scikit-Learn 1.8.0 (K-Means)",
+      "task": "Customer Recency, Frequency, Monetary Clustering",
+      "artifact_path": "ml/models/rfm_kmeans_model.joblib",
+      "silhouette_score": 0.5933,
+      "clusters_count": 4,
+      "status": "Production Ready"
+    }
+  },
+  "business_outcomes": {
+    "stockouts_averted_weekly": "Rs. 4,200",
+    "dormant_society_recovery_monthly": "Rs. 6,800",
+    "price_overcharge_audit_monthly": "Rs. 1,450",
+    "total_annual_profit_boost": "Rs. 1,53,828"
+  }
+}

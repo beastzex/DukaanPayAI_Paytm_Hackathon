@@ -1,0 +1,54 @@
+{
+  "metrics": {
+    "silhouette_score": 0.5933,
+    "total_customers_profiled": 1200,
+    "clusters_count": 4
+  },
+  "clusters": [
+    {
+      "cluster_id": 0,
+      "label": "Occasional / Dormant",
+      "count": 286,
+      "pct_of_customers": 23.8,
+      "avg_recency_days": 20.5,
+      "avg_frequency_orders": 24.9,
+      "avg_monetary_spend": 3197.74,
+      "retention_strategy": "Passive Soundbox welcome discount on next scan",
+      "action_urgency": "Medium"
+    },
+    {
+      "cluster_id": 1,
+      "label": "Champions (Prime Society Spenders)",
+      "count": 240,
+      "pct_of_customers": 20.0,
+      "avg_recency_days": 2.8,
+      "avg_frequency_orders": 126.1,
+      "avg_monetary_spend": 15807.47,
+      "retention_strategy": "VIP Soundbox greeting + priority festive allocation",
+      "action_urgency": "Low"
+    },
+    {
+      "cluster_id": 2,
+      "label": "Occasional / Dormant",
+      "count": 576,
+      "pct_of_customers": 48.0,
+      "avg_recency_days": 4.8,
+      "avg_frequency_orders": 26.7,
+      "avg_monetary_spend": 3360.25,
+      "retention_strategy": "Passive Soundbox welcome discount on next scan",
+      "action_urgency": "Medium"
+    },
+    {
+      "cluster_id": 3,
+      "label": "Occasional / Dormant",
+      "count": 98,
+      "pct_of_customers": 8.2,
+      "avg_recency_days": 43.7,
+      "avg_frequency_orders": 22.9,
+      "avg_monetary_spend": 2864.12,
+      "retention_strategy": "Passive Soundbox welcome discount on next scan",
+      "action_urgency": "Medium"
+    }
+  ],
+  "at_risk_recovery_potential": "Rs. 6,800/month"
+}

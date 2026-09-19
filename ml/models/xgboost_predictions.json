@@ -1,0 +1,209 @@
+{
+  "metrics": {
+    "accuracy": 99.78,
+    "roc_auc": 1.0,
+    "f1_score": 0.8571,
+    "precision": 0.75,
+    "recall": 1.0,
+    "train_samples": 44000,
+    "test_samples": 11000
+  },
+  "feature_importances": [
+    {
+      "feature": "current_shelf_stock",
+      "importance_pct": 65.62
+    },
+    {
+      "feature": "hour",
+      "importance_pct": 23.34
+    },
+    {
+      "feature": "quantity",
+      "importance_pct": 7.03
+    },
+    {
+      "feature": "unit_price",
+      "importance_pct": 1.11
+    },
+    {
+      "feature": "gross_margin",
+      "importance_pct": 0.96
+    },
+    {
+      "feature": "is_festival",
+      "importance_pct": 0.55
+    },
+    {
+      "feature": "is_weekend",
+      "importance_pct": 0.34
+    },
+    {
+      "feature": "is_ipl_match",
+      "importance_pct": 0.33
+    },
+    {
+      "feature": "day_of_week",
+      "importance_pct": 0.32
+    },
+    {
+      "feature": "supplier_lead_time_h",
+      "importance_pct": 0.28
+    },
+    {
+      "feature": "is_raining",
+      "importance_pct": 0.12
+    }
+  ],
+  "sku_predictions": [
+    {
+      "sku": "AML-BTR-500",
+      "name": "Amul Salted Butter (500g)",
+      "category": "Dairy",
+      "current_stock": 32,
+      "supplier_lead_time_h": 24,
+      "stockout_probability_pct": 0.1,
+      "risk_category": "HEALTHY",
+      "recommended_reorder_qty": 0
+    },
+    {
+      "sku": "AML-MK-500",
+      "name": "Amul Taaza Toned Milk (500ml)",
+      "category": "Dairy",
+      "current_stock": 45,
+      "supplier_lead_time_h": 4,
+      "stockout_probability_pct": 0.1,
+      "risk_category": "HEALTHY",
+      "recommended_reorder_qty": 0
+    },
+    {
+      "sku": "ASH-ATT-5KG",
+      "name": "Aashirvaad Shudh Chakki Atta (5kg)",
+      "category": "Staples",
+      "current_stock": 12,
+      "supplier_lead_time_h": 48,
+      "stockout_probability_pct": 0.1,
+      "risk_category": "WARNING",
+      "recommended_reorder_qty": 24
+    },
+    {
+      "sku": "BRU-COF-50G",
+      "name": "Bru Instant Coffee (50g jar)",
+      "category": "Beverages",
+      "current_stock": 54,
+      "supplier_lead_time_h": 48,
+      "stockout_probability_pct": 0.1,
+      "risk_category": "HEALTHY",
+      "recommended_reorder_qty": 0
+    },
+    {
+      "sku": "CLS-PST-150",
+      "name": "Colgate Strong Teeth Toothpaste (150g)",
+      "category": "Personal Care",
+      "current_stock": 19,
+      "supplier_lead_time_h": 72,
+      "stockout_probability_pct": 0.1,
+      "risk_category": "HEALTHY",
+      "recommended_reorder_qty": 0
+    },
+    {
+      "sku": "DET-SOAP-75",
+      "name": "Dettol Original Soap (75g)",
+      "category": "Personal Care",
+      "current_stock": 76,
+      "supplier_lead_time_h": 72,
+      "stockout_probability_pct": 0.1,
+      "risk_category": "HEALTHY",
+      "recommended_reorder_qty": 0
+    },
+    {
+      "sku": "FRT-OIL-1L",
+      "name": "Fortune Kachi Ghani Mustard Oil (1L)",
+      "category": "Staples",
+      "current_stock": 11,
+      "supplier_lead_time_h": 48,
+      "stockout_probability_pct": 2.0,
+      "risk_category": "WARNING",
+      "recommended_reorder_qty": 24
+    },
+    {
+      "sku": "LAY-CHIP-50",
+      "name": "Lay's India's Magic Masala (50g)",
+      "category": "Snacks",
+      "current_stock": 10,
+      "supplier_lead_time_h": 24,
+      "stockout_probability_pct": 13.4,
+      "risk_category": "WARNING",
+      "recommended_reorder_qty": 24
+    },
+    {
+      "sku": "MAG-NOD-70G",
+      "name": "Maggi 2-Minute Masala Noodles (70g)",
+      "category": "Packaged Goods",
+      "current_stock": 25,
+      "supplier_lead_time_h": 24,
+      "stockout_probability_pct": 0.1,
+      "risk_category": "HEALTHY",
+      "recommended_reorder_qty": 0
+    },
+    {
+      "sku": "MDN-CURD-400",
+      "name": "Mother Dairy Dahi (400g)",
+      "category": "Dairy",
+      "current_stock": 14,
+      "supplier_lead_time_h": 6,
+      "stockout_probability_pct": 0.1,
+      "risk_category": "WARNING",
+      "recommended_reorder_qty": 24
+    },
+    {
+      "sku": "PRL-PLG-1KG",
+      "name": "Parle-G Gold Biscuits (1kg)",
+      "category": "Packaged Goods",
+      "current_stock": 54,
+      "supplier_lead_time_h": 48,
+      "stockout_probability_pct": 0.1,
+      "risk_category": "HEALTHY",
+      "recommended_reorder_qty": 0
+    },
+    {
+      "sku": "SUR-DET-1KG",
+      "name": "Surf Excel Quick Wash Powder (1kg)",
+      "category": "Home Care",
+      "current_stock": 35,
+      "supplier_lead_time_h": 48,
+      "stockout_probability_pct": 0.1,
+      "risk_category": "HEALTHY",
+      "recommended_reorder_qty": 0
+    },
+    {
+      "sku": "TAT-SLT-1KG",
+      "name": "Tata Salt Vacuum Evaporated (1kg)",
+      "category": "Staples",
+      "current_stock": 21,
+      "supplier_lead_time_h": 72,
+      "stockout_probability_pct": 0.1,
+      "risk_category": "HEALTHY",
+      "recommended_reorder_qty": 0
+    },
+    {
+      "sku": "TAT-TEA-250",
+      "name": "Tata Tea Premium (250g)",
+      "category": "Beverages",
+      "current_stock": 17,
+      "supplier_lead_time_h": 48,
+      "stockout_probability_pct": 0.1,
+      "risk_category": "HEALTHY",
+      "recommended_reorder_qty": 0
+    },
+    {
+      "sku": "THU-SDA-750",
+      "name": "Thums Up Charged (750ml PET)",
+      "category": "Beverages",
+      "current_stock": 7,
+      "supplier_lead_time_h": 24,
+      "stockout_probability_pct": 37.7,
+      "risk_category": "WARNING",
+      "recommended_reorder_qty": 24
+    }
+  ]
+}
